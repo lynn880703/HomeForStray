@@ -1,4 +1,4 @@
-！[image](https://github.com/lynn880703/HomeForStray/blob/master/IMG_2170.JPG)
+![image](https://github.com/lynn880703/HomeForStray/blob/master/IMG_2170.JPG)
 主題為：流浪動物領養平台 <br>
 網站名稱:浪浪有窩<br>
 網站主要採用Node.js / Express 開發 API，搭配MySQL資料串接<br>
