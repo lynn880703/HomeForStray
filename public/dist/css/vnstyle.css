@@ -1,0 +1,202 @@
+body {
+	font-size:16px;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family:"微軟正黑體";
+}
+/* .modal-header {
+    background-color: #401f4d;
+	color: #FFF;
+} */
+.close {
+    color: #fff;
+    opacity: 1;
+}
+.loginbg {
+	background-image:url(../../images/login.jpg);
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+/* a:focus, a:hover {
+    color: #813d99;
+	text-decoration:none;
+} */
+.form-signin {
+	text-align:center;
+}
+.form-signin img.logo {
+	max-width:90%;
+}
+.form-signin .login-white {
+	background-color:#FFF;
+	border-radius:5px;
+	padding:2em;
+	margin-top:30px;
+	text-align:left;
+	margin-bottom:30px;
+	box-shadow:0 0 20px rgba(0, 0, 0, 0.5);
+}
+.form-signin input {
+	margin-bottom:10px;
+}
+/* .btn-danger {
+	background-color: #813d99;
+    border-color: #813d99;
+	margin-right:5px;
+} */
+.pagination {
+	margin-top:auto;
+}
+.mt-20 {
+	margin-top:20px;
+}
+/* .btn-danger:hover, .btn-danger.focus, .btn-danger:focus, .btn-danger.active.focus, .btn-danger.active:focus, .btn-danger.active:hover, .btn-danger:active.focus, .btn-danger:active:focus, .btn-danger:active:hover, .open>.dropdown-toggle.btn-danger.focus, .open>.dropdown-toggle.btn-danger:focus, .open>.dropdown-toggle.btn-danger:hover {
+	background-color: #4d205d;
+    border-color: #4d205d;
+	transition:.3s;
+}
+.login_footer {
+	color:#FFF;
+}
+.main-header {
+    background-color: #401f4d;
+} */
+.navbar-static-top h3 {
+	color:#FFF;
+}
+.sidebar-mini .main-sidebar {
+    background-color: #ebebeb;
+}
+.content-wrapper, .right-side {
+    background-color: #FFF;
+}
+/* .sidebar-mini .sidebar-menu>li:hover>a, .skin-green .sidebar-menu>li.active>a, .sidebar-menu>li.active a {
+    background-color: #813d99;
+    color: #FFF;
+}
+.sidebar-mini .treeview-menu>li>a {
+	background-color:#FFF;
+	color:#797979;
+}
+.sidebar-mini .treeview-menu>li>a:hover, .sidebar-mini .treeview-menu>li.active>a {
+	background-color:#9e6faf;
+	color:#FFF;
+}
+.sidebar-mini .sidebar-menu>li>.treeview-menu {
+    background-color: #8d6b99;
+}
+.content-header {
+    padding: 5px 15px;
+    background-color: #8d6b99;
+} */
+.content-header>.breadcrumb {
+    float: none;
+    top: auto;
+    padding: 8px 15px;
+}
+/* .content-header>.breadcrumb>li>a {
+    color: #f0cffc;
+	font-size:14px;
+} */
+.breadcrumb>.active {
+    color: #fff;
+}
+h3.title {
+	font-weight: bold;
+    margin: 0 0 10px;
+    font-size: 24px;
+    color: #383838;
+}
+.p0 {
+	padding:0 !important;
+}
+.search {
+	margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #ebebeb;
+    border-radius: 5px;
+	background-color: #f9f9f9;
+}
+.content-header>.breadcrumb {
+	background:none;
+}
+.table td a {
+	color:#333;
+}
+.red {
+	color:#F00;
+	font-weight:bold;
+}
+.modal-title {
+	font-weight:bold;
+}
+.m-0 {
+	margin:0;
+}
+.table>tbody>tr.warning>td, .table>tbody>tr.warning>th, .table>tbody>tr>td.warning, .table>tbody>tr>th.warning, .table>tfoot>tr.warning>td, .table>tfoot>tr.warning>th, .table>tfoot>tr>td.warning, .table>tfoot>tr>th.warning, .table>thead>tr.warning>td, .table>thead>tr.warning>th, .table>thead>tr>td.warning, .table>thead>tr>th.warning {
+    background-color: #ffe5be;
+}
+.yellowbg {
+	background-color: #fff6a9;
+}
+.yellowbg h4 i {
+	color:#e40000;
+}
+.btn-default {
+    background-color: #dadada;
+}
+.blue {
+	background-color: #bee7ec;
+}
+.left-border, .lineborder tr td:nth-child(5), .lineborder tr th:nth-child(5) {
+	border-left:1px solid #000;
+}
+.nav-tabs {
+    margin-bottom: 20px;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+	font-weight:bold;
+}
+.s-Elab {
+	font-size:12px;
+	line-height:30px;
+	float:left;
+	margin-right:20px;
+}
+
+@media (min-width:640px) {
+	.form-signin {
+		max-width:480px;
+	}
+	.form-signin img.logo {
+		max-width:80%;
+	}
+	.s-Elab {
+		margin-right:35px;
+	}
+	
+}
+@media (min-width:768px) {
+	.s-Elab {
+		margin-right:10px;
+	}
+
+}
+@media (min-width:994px) {
+	.s-Elab {
+		margin:0 12px;
+	}
+
+}
+@media (min-width:1300px) {
+	.s-Elab {
+		margin:0 20px;
+	}
+
+}
+@media (min-width:1550px) {
+	.s-Elab {
+		margin:0 28px;
+	}
+
+}

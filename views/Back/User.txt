@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>浪浪有窩後臺管理系統</title>
+  <!-- 頁籤icon -->
+  <link href="#" rel="icon" />
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/461a428763.js" crossorigin="anonymous"></script>
+
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
+
+  <!--JQ-->
+  <link rel="stylesheet" href="/dist/css/jquery-ui.css">
+  <link rel="stylesheet" href="/dist/css/skins/skin-blue.css">
+  <link rel="stylesheet" href="/dist/css/gl-style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/dist/css/vnstyle.css">
+  <link rel="stylesheet" href="/stylesheets/annistyle.css">
+
+
+<style>
+        th {
+            background-color: #DCE9F3;
+            color: black;
+            text-align: center;
+            vertical-align: middle;
+            /*line-height: 60px;
+      height: 60px; */
+            width: 200px;
+            font-weight: bold;
+        }
+
+        td {
+            /* height: 60px;
+
+      line-height: 60px; */
+            vertical-align: middle;
+        }
+
+ㄋ
+
+
+.content-wrapper, section{
+  height: 100vh;
+}
+
+        .main-sidebar,#main-sidebar,ul.sidebar-menu, .sidebar {
+            height: 100vh;
+            background-color: #DCE9F3;
+            padding-bottom:200px;
+        }
+
+
+       .back-index-link {
+
+            height: 250px;
+            line-height: 250px;
+            text-align: center;
+            box-sizing: content-box;
+            background-color: #1F4E79;
+            color: white;
+            font-size: 24pt;
+            border-radius: 20px;
+
+        }
+
+        .back-index-link:hover {
+
+            border: 6px dashed #DCE9F3;
+        }
+
+
+
+    </style>
+
+
+</head>
+
+<body class="hold-transition sidebar-mini ">
+  <div class="wrapper">
+    <!-- 左上角Logo -->
+    <header class="main-header">
+      <a href="#" class="logo">
+        <span class="logo-mini"><b>E</b>VE</span>
+        <span class="logo-lg">
+          <!-- <img style="height: 30px; width: 80px;" src="/img/Logo/字.png" alt=""> -->
+        </span>
+      </a>
+
+      <!-- 上方標題 -->
+      <nav class="navbar navbar-static-top align-items-center" role="navigation" style="line-height: 50px;">
+        <!-- <a href="#" class="sidebar-toggle  visible-xs" data-toggle="offcanvas" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a> -->
+        <!-- <h3 style=" text-align: left">後臺管理系統</h3> -->
+        <div class="text-right align-items-center blueheader">
+          <a href="/member/logout">
+            <a href="/member/logout">
+              <button type=" button" class="btn btn-info logout">登出</button>
+            </a> </a>
+        </div>
+      </nav>
+
+
+    </header>
+
+   
+    <!-- 左側選單 -->
+ <aside class="main-sidebar" id="main-sidebar">
+      <section class=" sidebar">
+        <!-- Logo -->
+        <img class="menu-logo" src="/img/Logo/logomix.png" style="width: 250px;" alt="">
+        <ul class="sidebar-menu" style="background-color: #DCE9F3;">
+          <li class="treeview"><a href="/"><span>回前臺</span><i class="fa fas fa-paw"></i></a></li>
+
+          <li class="treeview"><a class="menu-active" href="/BackUserManage/UserManageList"><span>會員資料管理</span><i
+                class="fa fas fa-paw"></i></a></li>
+          <li class="treeview"><a href="/BackFosterManage/FosterManageList"><span>刊登送養審核</span><i class="fa fas fa-paw"></i></a></li>
+          <li class="treeview"><a href="/BackNewsManage/NewsManageList"><span>最新消息管理</span><i
+                class="fa fas fa-paw"></i></a></li>
+          <li class="treeview"><a  href="/BackKnowManage/KnowManageList"><span>毛孩知識文章管理</span><i class="fa fas fa-paw"></i></a></li>
+        </ul>
+
+      </section>
+    </aside>
+
+  
+
+
+
+

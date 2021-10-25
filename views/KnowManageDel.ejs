@@ -1,0 +1,86 @@
+<%- include("./Back/Know.txt") %>
+
+  <div class="content-wrapper">
+    <section class="content">
+      <h3 class="title">毛孩知識管理</h3>
+      <form action="" id="News" name="News" method="POST" class="table-responsive">
+        <table class=" table table-striped">
+          <!-- 標題 -->
+          <tr class="">
+            <th scope="col" style="vertical-align: middle;">
+              標題
+            </th>
+            <td>
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <input type=" text" id="TitleText" class="form-control" value="<%= data[0].ArticleTitle %>"
+                  name="ArticleTitle" disabled="disabled">
+              </div>
+            </td>
+          </tr>
+          <!-- 發佈日期 -->
+          <tr class="">
+            <th scope="col" style="vertical-align: middle;">
+              發佈日期
+            </th>
+            <td style="vertical-align: middle;">
+              <!-- 發佈日期str -->
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="form-group">
+                  <input name="ArticleDate" type="date" class="form-control inputNotOutline"
+                    value="<%= date %>" disabled="disabled">
+                </div>
+              </div>
+            </td>
+          </tr>
+          <!-- 內容 -->
+          <tr class="">
+            <th scope="col" style="vertical-align: middle;">
+              內容
+            </th>
+            <td style="vertical-align: middle;">
+              <div class="col-xs-12 col-sm-12 col-md-12">
+                <textarea name="ArticleContent" id="textArea" class="form-control" cols="40" rows="25"
+                  disabled="disabled"><%= data[0].ArticleCont %></textarea>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="">
+            <th scope="col" style="vertical-align: middle;">
+              照片
+            </th>
+            <td style="vertical-align: middle;">
+              <div id="TitleButtonDiv">
+                <!-- 資料庫抓出的檔案 -->
+                <img src="/images/upload_images/<%= data[0].ArticleImg %>" height="100" alt="">
+              </div>
+            </td>
+
+          </tr>
+
+
+        </table>
+        <!-- 確認修改/返回 -->
+        <div class="col-xs-12 text-right">
+
+          <button type="submit" class="btn btn-primary">確定刪除</button>
+          <a href="KnowManageList?pageNo=<%=pageNo%>">
+            <button type="button" class="btn btn-primary">返回</button>
+          </a>
+        </div>
+      </form>
+    </section>
+  </div>
+
+
+  </div>
+  <div class="clearfix"></div>
+  </section>
+
+
+  </div>
+  </div>
+
+
+
+  <%- include("./Back/Foot.txt") %>

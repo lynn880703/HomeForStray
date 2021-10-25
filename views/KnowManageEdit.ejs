@@ -1,0 +1,108 @@
+<%- include("./Back/Know.txt") %>
+
+
+  <div class="content-wrapper">
+    <section class="content">
+      <h3 class="title">毛孩知識管理</h3>
+      <form action="" method="POST" class="table-responsive" enctype="multipart/form-data">
+        <table class=" table table-striped">
+          <!-- 標題 -->
+          <tr class="">
+            <th scope="col" style="vertical-align: middle;">
+              標題
+            </th>
+            <td>
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <input type=" text" id="TitleText" class="form-control" value="<%= data[0].ArticleTitle %>"
+                  name="ArticleTitle" required>
+              </div>
+            </td>
+          </tr>
+          <!-- 發佈日期 -->
+          <tr class="">
+            <th scope="col" style="vertical-align: middle;">
+              發佈日期
+            </th>
+            <td style="vertical-align: middle;">
+              <!-- 發佈日期str -->
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="form-group">
+                  <input name="ArticleDate" type="date" class="form-control inputNotOutline" id="articleId"
+                    value="<%= date %>" required>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <!-- 內容 -->
+          <tr class="">
+            <th scope="col" style="vertical-align: middle;  height: 200px;">
+              內容
+            </th>
+            <td style="vertical-align: middle;">
+              <div class="col-xs-12 col-sm-12 col-md-12">
+                <textarea name="ArticleContent" id="textArea" class="form-control" cols="40" rows="15"
+                  required><%= data[0].ArticleCont %></textarea>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="">
+            <th scope="col" style="vertical-align: middle;">
+              照片
+            </th>
+            <td style="vertical-align: middle;">
+              <img src="">
+              <div id="TitleButtonDiv">
+                <!-- 資料庫抓出的檔案 -->
+                <img id="outputImg2" src="/images/upload_images/<%= data[0].ArticleImg %>" height="100" alt=""
+                  name="uploadImg2">
+
+                <!-- 隱藏img -->
+                <img src="" alt="" id="outputImg" height="100" style="display:none">
+                <!-- 隱藏img end -->
+                <label for="uploadImgEdit" class="btn btn-success">
+                  <input type="file" style="display:none;" accept=".jpg, .jpeg, .png" id="uploadImgEdit" name="uploadImgEdit"
+                    onchange="openFile(event)">上傳圖片
+                </label>
+                <input type="button" value="刪除圖片" id="deleteImg" class="btn btn-danger" onclick="delFile(event)">
+              </div>
+            </td>
+
+          </tr>
+
+
+        </table>
+        <!-- 確認修改/返回 -->
+        <div class="col-xs-12 text-right">
+
+          <button type="submit" class="btn btn-primary">確認修改</button>
+          <a href="KnowManageList?pageNo=<%=pageNo%>">
+            <button type="button" class="btn btn-primary">返回</button>
+          </a>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <script>
+    // 顯示 outputImg
+    function openFile(event) {
+      var input = event.target; //取得上傳檔案
+      var reader = new FileReader(); //建立FileReader物件
+
+      reader.readAsDataURL(input.files[0]); //以.readAsDataURL將上傳檔案轉換為base64字串
+
+      reader.onload = function () { //FileReader取得上傳檔案後執行以下內容
+        var dataURL = reader.result; //設定變數dataURL為上傳圖檔的base64字串
+        $('#outputImg').attr('src', dataURL).show(); //將img的src設定為dataURL並顯示
+      };
+    }
+    // 刪除圖片
+    function delFile(event) {
+      $('#outputImg,#outputImg2').removeAttr('src'); //將img的src設定為dataURL並顯示
+    }
+  </script>
+
+
+
+  <%- include("./Back/Foot.txt") %>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- bootstrap -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+		integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+		crossorigin="anonymous"></script>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet" />
+	<!-- sweetalert2 -->
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+	<!-- css -->
+	<link rel="stylesheet" href="stylesheets/lynnstyle.css" />
+	<title>浪浪有窩</title>
+
+	<!-- JS -->
+	<!-- scrollify -->
+	<script src="../public/plugins/Scrollify-master/jquery.scrollify.js"></script>
+	<script src="../public/plugins/jQuery/jquery.easing.min.js"></script>
+	<script src="../public/plugins/jQuery/jquery.js"></script>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+	<!-- scrollify(CDN) -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.min.js"
+		integrity="sha512-UyX8JsMsNRW1cYl8BoxpcamonpwU2y7mSTsN0Z52plp7oKo1u92Xqfpv6lOlTyH3yiMXK+gU1jw0DVCsPTfKew=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.js"
+		integrity="sha512-2rSKyHme2mrplfIGsA8bFYAYddQ66qR+Dh71OrNZsZOtMdCYa8V1lJvl2mr/qzwcMIs20ddYz4JLiBmwS2K7Iw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script>
+		$(function () {
+			$.scrollify({
+				section: ".OhMyGod",
+			});
+		});
+	</script>
+
+	<!-- stellar -->
+	<!-- <script src="../public/plugins/stellar.js-master/jquery.stellar.min.js"></script>
+
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/stellar.js/0.6.2/jquery.stellar.min.js"
+			integrity="sha512-PNXCBnFH9wShbV+mYnrfo0Gf3iSREgBWmYAoMIfc+Z83vVq3Nu4yxBk6j+BZ40ZIhtW3WlTQdBvW3AYLAnlgpA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<script>
+			$(document).ready(function () {
+				$.stellar();
+			});
+		</script> -->
+</head>
+
+<body onscroll="myFunction()">
+	<!-- 引入header -->
+	<%- include Header %>
+
+		<section class="OhMyGod" data-section-name="one">
+			<div class="container-fluid body-content">
+				<div class="row w-100">
+					<div class="col-12 col-md body-content-img">
+						<img src="../img/新圖/—Pngtree—creative poster design - pet_570036.png" alt="" class="peo" />
+						<img src="../img/新圖/—Pngtree—domestic pet cat_4551043.png" alt="" class="cat" />
+					</div>
+					<div class="col-12 col-md body-text">
+						尋尋覓覓<br />
+						有一隻等愛的浪浪，在這裡等你<br />
+						快來找尋誰是你親密的動物伴侶?
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- 關於我們 -->
+		<section class="OhMyGod" data-section-name="two">
+			<div class="container about-block">
+				<div class="row w-100">
+					<div class="col-12 col-md-6 about-logo">
+						<img src="../img/Logo/logomix2.png" alt="" class="img-fluid" />
+					</div>
+					<div class="col-12 col-md-6 about-text">
+						<div class="title about-title mt-0">
+							<h4>關於我們</h4>
+						</div>
+						<div class="about-text-content">
+							現今社會越來越有愛護動物的意識，<br />
+							大家更願意領養代替購買，<br />
+							民間也開始用用FB社團等平台張貼領養<br />
+							等資訊，但在這個資訊爆炸的世代，<br />
+							難免資訊雜亂難以查找。<br /><br />
+
+							我們是一群正在學習軟體工程的學生，<br />
+							期望用我們所學的力量創建本平台改善大環境。 希望能藉由這個平台<br />幫助更多毛孩找到一個家。
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 連結區塊 -->
+		<section class="OhMyGod" data-section-name="three">
+			<div class="container link-block-adopt">
+				<img src="../img/新圖/adopt.png" alt="" class="adopt-right-img" />
+				<div class="adopt-right w-100">
+					<img src="../img/新圖/cloud-1.png" alt="" class="link-adopt-img" />
+					<div class="adopt-text">
+						毛小孩無法說話，<br />也無法決定自己的命運，<br />
+						但伸出援手的你，<br />卻可以成為他們的靠山。<br />
+						<span class="more">Read more...</span>
+					</div>
+					<div>
+						<a href="/AdoptList" class="adopt-title">毛孩領養</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="OhMyGod" data-section-name="four">
+			<div class="container link-block-adopt">
+				<div class="foster-left">
+					<img src="../img/新圖/cloud-1.png" alt="" />
+					<div class="foster-text">
+						有一份愛，是陪伴與等待。<br />
+						我們以同等的愛與關懷，<br />
+						牽起流浪動物的手，<br />
+						協助牠們找尋幸福。<br />
+						<span class="more">Read more...</span>
+					</div>
+					<div>
+						<a href="/Foster" class="foster-title">刊登送養</a>
+					</div>
+				</div>
+				<img src="../img/新圖/foster.png" alt="" class="adopt-right-img foster-right-img" />
+			</div>
+		</section>
+
+		<section class="OhMyGod" data-section-name="five">
+			<div class="container link-block-adopt">
+				<img src="../img/新圖/毛孩知識.png" alt="" class="adopt-right-img" />
+				<div class="know-right w-100">
+					<img src="../img/新圖/cloud-1.png" alt="" class="link-adopt-img" />
+					<div class="know-text">
+						毛孩的健康知識你知道多少呢？ <br />
+						定期更新關於毛孩你要知道的事！<br />
+						<span class="more">Read more...</span>
+					</div>
+					<div>
+						<a href="/KnowList" class="know-title">毛孩知識</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 最新消息 -->
+		<section class="OhMyGod" data-section-name="six">
+			<div class="container-fluid fly-new w-100">
+				<div class="fly-new-img"></div>
+				<!-- <img src="../img/新圖/未命名-1.png" alt="" class="fly-new-img w-100"> -->
+				<div class="row fly-block">
+					<div class="col-8 new-block-title">
+						<h3>最新消息</h3>
+					</div>
+					<% for(var i=0; i< 3 ; i++) { %>
+						<div class="row fly-text">
+							<div class="new-title">
+								<p class="date">
+									<%= (data[i].ShowStartDate).toLocaleDateString() %>
+								</p>
+							</div>
+							<div class="new-content">
+								<a href="/NewsContent?id=<%= data[i].NewsId %>"
+									class="content multiline-ellipsis w-100">
+									<%= data[i].NewsTitle %>
+								</a>
+							</div>
+						</div>
+						<% } %>
+							<div class="col-10 more-news display-flex">
+								<a href="/NewsList">更多消息...</a>
+							</div>
+				</div>
+			</div>
+		</section>
+		<section class="OhMyGod" data-section-name="seven">
+			<!-- 造景 -->
+			<div class="w-100 view container-fluid" data-stellar-ratio="0.8"></div>
+			<!-- 河流 -->
+			<div class="container-fluid river w-100">
+				<img src="../img/新圖/river-line01.png" alt="" class="river-line" data-stellar-ratio="0.9" />
+				<img src="../img/新圖/river-line01.png" alt="" class="river-line2" data-stellar-ratio="0.9" />
+			</div>
+			<!-- 草原 -->
+			<div class="container-fluid footer-top p-0 w-100">
+				<!-- <img src="../img/新圖/footer-top-2.png" alt="" class="footer-top"> -->
+				<img src="../img/新圖/grass.png" alt="" class="grass-1" data-stellar-ratio="1" />
+				<img src="../img/新圖/doggies.png" alt="" class="dog-1" data-stellar-ratio="0.8" />
+				<img src="../img/新圖/doggies 2.png" alt="" class="dog-2" data-stellar-ratio="0.9" />
+				<img src="../img/新圖/doggies 3.png" alt="" class="dog-3" data-stellar-ratio="0.8" />
+				<img src="../img/新圖/grass.png" alt="" class="grass-2" data-stellar-ratio="1" />
+				<img src="../img/新圖/smallgrass.png" alt="" class="grass-3" data-stellar-ratio="0.9" />
+			</div>
+
+			<!-- footer -->
+			<footer class="container-fluid p-0">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<img src="../img/Logo/字.png" alt="" class="footer-logo" />
+						</div>
+						<div class="col-12 col-md-6 footer-link">
+							<ul>
+								<li><a href="/AdoptList">毛孩領養</a></li>
+								<li><a href="/KnowList">毛孩知識</a></li>
+							</ul>
+							<ul>
+								<% if ( memberData=="" ){ %>
+									<li><a href="javascript:link()">刊登送養</a></li>
+									<li><a href="javascript:link()">會員專區</a></li>
+									<% }else{ %>
+										<li><a href="/Foster">刊登送養</a></li>
+										<li><a href="/UserEdit">會員專區</a></li>
+										<% } %>
+							</ul>
+							<ul>
+								<li><a href="/NewsList">最新消息</a></li>
+								<li><a href="/">關於我們</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="row footer-text">
+						<div class="col-12">本站所有資訊來源為會員自行刊登，本站對資訊內容無法確實檢查，如有遺漏或侵犯它人權益由刊登者自行負擔相關責任。 <br />如有任何建議或合作請與我們聯絡
+						</div>
+						<div class="col-12 copy">© 2021 Copyright .tw By MFEE18-No.8</div>
+					</div>
+				</div>
+			</footer>
+		</section>
+		<% if (isGuest) { %>
+			<script>
+				function link() {
+					Swal.fire({
+						text: '請先登入',
+						icon: 'info',
+					}).then(function () {
+						window.location.href = "/member/login"
+					})
+				}
+			</script>
+			<% } %>
+				<!-- JS -->
+				<script>
+					// 漢堡選單
+					$(document).ready(function () {
+						$(".burgar-menu").on("click", function (e) {
+							$("body").toggleClass("burgar-menu-show");
+						});
+						//毛孩知識
+						$(".know-right").mousemove(function () {
+							$(".know-text").hide();
+							$(".know-title").show();
+						});
+						$(".know-right").mouseout(function () {
+							$(".know-text").show();
+							$(".know-title").hide();
+						});
+						//刊登送養
+						$(".foster-left").mousemove(function () {
+							$(".foster-text").hide();
+							$(".foster-title").show();
+						});
+						$(".foster-left").mouseout(function () {
+							$(".foster-text").show();
+							$(".foster-title").hide();
+						});
+						//毛孩領養
+						$(".adopt-right").mousemove(function () {
+							$(".adopt-text").hide();
+							$(".adopt-title").show();
+						});
+						$(".adopt-right").mouseout(function () {
+							$(".adopt-text").show();
+							$(".adopt-title").hide();
+						});
+					});
+				</script>
+</body>
+
+</html>

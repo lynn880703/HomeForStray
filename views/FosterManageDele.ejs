@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FosterManageDele</title>
+
+    <!-- jquery -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js'
+        integrity='sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=='
+        crossorigin='anonymous'></script>
+    <!-- Bootstrap CSS -->
+    <!-- 連結方式建議使用cdn 嘗試一下未來工作的情況 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+    <script src="../Bootstrap/js/jquery.min.js"></script>
+    <script src="../Bootstrap/js/popper.min.js"></script>
+    <script src="../Bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="stylesheets/minyustyle.css">
+    <title>浪浪有窩</title>
+
+
+</head>
+
+<body>
+
+    <!-- navbar-->
+    <div class="container-fluid header">
+        <a href="./X_index.html" class="logoImg navbar-brand">
+            <img src="../img/Logo/改I2 2.png" alt="" class="logo">
+            <img src="../img/Logo/字.png" alt="" class="logo-text">
+        </a>
+        <div class="nav">
+            <!-- 漢堡選單 -->
+            <ul class="menu burgar-menu">
+                <li><a href="./X_index.html">首頁</a></li>
+                <li><a href="./AdopList.html">毛孩領養</a></li>
+                <li><a href="./Foster.html">刊登送養</a></li>
+                <li><a href="./KnowList.html">毛孩知識</a></li>
+            </ul>
+            <a href="#" class="hamBar burgar-menu">
+                <i>
+                    <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
+                </i>
+            </a>
+            <!-- navbar-user -->
+            <div class="btn-group">
+                <button class="btn  btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <img src="../img/icon/user.png" alt="" class="user-icon">
+                </button>
+                <div class="dropdown-menu dropdown-menu-right user-menu">
+                    <div class="user-img"></div>
+                    <ul>
+                        <li>某某某</li>
+                        <li><a href="./UserEdit.html">會員資料</a></li>
+                        <li><a href="./UserFoster.html">我的送養文</a></li>
+                        <li><a href="./UserFollow.html">追蹤的毛孩</a></li>
+                        <li><a href="./UserMsg.html">通知</a></li>
+                        <li><a href="./FindMe.html">登出</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="breadcrumb-block">
+        <div class="container-fluid ">
+            <ol class="breadcrumb pb-0 ">
+                <li class="breadcrumb-item "><a href="./X_index.html">首頁</a></li>
+                <li class="breadcrumb-item active" aria-current="page">後臺管理</li>
+                <li class="breadcrumb-item active" aria-current="page">刊登送養審核</li>
+                <li class="breadcrumb-item active" aria-current="page">刪除</li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="MyDivTitle" class="container">
+        <h2 class="title-lg">刊登送養審核</h2>
+    </div>
+
+    <div id="MyDivView" class="container">
+        <form action="" method="POST">
+            <table>
+                <tr>
+                    <td class="ViewTitle">寵物暱稱
+                    </td>
+                    <td class="ContentView"><label for="html" id="MyLabel">
+                            <%= data[0].PetName %>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ViewTitle">會員刊登日期
+                    </td>
+                    <td class="ContentView"><label for="html" id="MyLabel">
+                            <%= (data[0].AdoptDate).toLocaleDateString() %>
+                        </label></td>
+                </tr>
+                <tr>
+                    <td class="ViewTitle">內容</td>
+                    <td class="ContentView">
+                        <table id="FosterTable" border="1">
+                            <tr>
+                                <td>種類</td>
+                                <td>
+                                    <%= data[0].PetSpecies %>
+                                </td>
+                            </tr>
+                            <tr class="FosterTr">
+                                <td>品種</td>
+                                <td>
+                                    <%= data[0].PetBreed %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>體型</td>
+                                <td>
+                                    <%= data[0].BodyType %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>毛色</td>
+                                <td>
+                                    <%= data[0].PetFur %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>年紀</td>
+                                <td>
+                                    <%= data[0].PetAge %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>性別</td>
+                                <td>
+                                    <%= data[0].PetGender %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>結紮狀況</td>
+                                <td>
+                                    <%= data[0].Neuter %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>是否有晶片</td>
+                                <td>
+                                    <%= data[0].Microchip %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>縣市</td>
+                                <td>
+                                    <%= data[0].CityId %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>連絡人</td>
+                                <td>
+                                    <%= data[0].ContactPerson %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>連絡電話</td>
+                                <td>
+                                    <%= data[0].ContactPhone %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>寵物描述</td>
+                                <td>
+                                    <%= data[0].PetDes %>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </td>
+                </tr>
+
+
+                <td class="Title">照片</td>
+                <td colspan="5" class="Content">
+                    <img src="">
+                    <div id="TitleButtonDiv">
+                        <!-- 隱藏img -->
+                        <img src="" alt="" id="outputImg" height="100" style="display:none">
+                        <!-- 隱藏img end -->
+
+
+                    </div>
+                </td>
+                <tr>
+                    <td class="ViewTitle">狀態</td>
+                    <td class="ContentView">
+                        <label for="html" id="MyLabel">
+                            <% var Satae=(data[0].AdoptSatae==0) ? "未通過" : "已通過" ; %>
+                                <%= Satae %>
+                        </label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" id="MySubmitId">
+                        <!--  -->
+                        <input type="submit" class="MySubmitSent" value="刪除">
+                        <input type="text" id="PetDeleInput" name="PetId" value="<%= data[0].PetId %>">
+
+                        <a href="/BackFosterManage/FosterManageList"><button type="button" class="MySubmitCancel"
+                                value="">取消</button></a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <!-- footer -->
+    <footer class="container-fluid footer">
+        <div class="row justify-content-center w-100 m-0">
+            <div class="col-10 col-md-10 copyright">
+                本站所有資訊來源為會員自行刊登，本站對資訊內容無法確實檢查，僅就一般正常情理做審核，如有遺漏或侵犯它人權益由刊登者自行負擔相關責任。
+                <br>如有任何建議或合作請與我們聯絡 <br>© 2021 Copyright .tw By MFEE18-No.8
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 漢堡選單
+        $(document).ready(function () {
+            $('.burgar-menu').on('click', function (e) {
+                $('body').toggleClass('burgar-menu-show');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

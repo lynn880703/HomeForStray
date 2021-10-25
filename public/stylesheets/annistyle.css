@@ -1,0 +1,363 @@
+.box1{
+ 
+    display: flex;
+    align-items: center;
+    height: 100vh;
+
+    
+}
+
+#MySubmitId .confirmDelete{
+    color: red;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+.box2{
+    border-radius: 15px;
+    background-color: #F8E4AC;
+    padding: 25px;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.box22{
+    border-radius: 15px;
+    background-color: #F8E4AC;
+    /* width: 500px; */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.box32{
+    background-color: #F8E4AC;    
+    border-radius: 15px 0px 0px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px;
+    align-items: center;
+    
+}
+.box42{
+    background-color: #F6F4E8;    
+    border-radius: 0px 15px 15px 0px;
+    padding: 25px 50px 20px 20px;
+
+}
+
+
+.loginImg{
+    height: 40px;
+}
+
+.box2 h4{
+    border-left: #F6F4E8 10px solid;
+    font-weight:bold;
+    padding-left: 5px;
+    margin-bottom: 30px;
+}
+
+.box22 h4{
+    font-weight:bold;
+    padding-left: 5px;
+    margin-bottom: 30px;
+}
+.box42 h4{
+    border-left: #F8E4AC 10px solid;
+    font-weight:bold;
+    padding-left: 5px;
+    margin-bottom: 30px;
+}
+.box2 table input{
+    border:none;
+    background-color: #DEDCCD;
+    border-radius: 20px;
+    margin: 10px;
+    width: 250px;
+    padding: 0 10px;
+
+}
+
+.box42 input{
+    border:none;
+    background-color: #DEDCCD;
+    border-radius: 20px;
+    margin: 10px;
+    width: 250px;
+    padding: 0 10px;
+}
+hr{
+    background-color: #FDC6A0;
+    /* color: #FDC6A0; */
+    height: 5px;
+    border-radius: 5px;
+
+}
+
+.box42 span{
+    font-weight:bold;
+    font-size: 16px;
+}
+.box2 span{
+    font-weight:bold;
+    font-size: 20px;
+}
+.box2 table{
+    width: 500px;
+}
+.box2 tr td:first-child{
+    padding-left: 15px;
+}
+
+.box3{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.box3 .readnotice{
+    font-weight:bold;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+
+}
+
+button.check{
+    background-color:transparent;
+    border-radius: 10px;
+    border: 1px #8E8A7E solid;
+    font-weight:bold;
+
+}
+button.register{
+    background-color:transparent;
+    border-radius: 10px;
+    border: 1.5px #8E8A7E solid;
+    width: 100px;
+    font-weight:bold;
+
+}
+button.login{
+    background-color:transparent;
+    border-radius: 10px;
+    border: 1.5px #8E8A7E solid;
+    width: 100px;
+    margin: 30px 0px 30px 75px;
+    font-weight:bold;
+
+}
+button.foster{
+    background-color:#FDC29A;
+    border-radius: 15px;
+    padding:5px 10px 5px 10px;
+    border: 0px;
+    margin: 10px;
+    font-weight:bold;
+
+}
+.profileImg{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+
+}
+.userAdmin{
+    background-color: #F8E4AC;
+    width: 300px;
+    display: flex;
+    flex-direction: column
+    ;
+}
+.fosterList th ,.fosterList td{
+border: 1px #9F9D94 solid;;
+}
+.fosterList th,.fosterList td{
+    padding: 1rem;
+    text-align: center;
+
+}
+.fosterList th {
+    background-color:#F8E4AC;
+    padding: 1rem;
+
+}
+.quicklogin{
+    margin-left: 20px;
+    margin-right: 50px;
+}
+
+button.rigister{
+    margin-top: 20px;
+    background-color:#DEEDCC;
+    border: 0px;
+    width: 80px;
+    border-radius: 10px;
+    font-weight:bold;
+    font-size: 20px;
+}
+
+.box3.readnotice label.notice{
+
+    display: inline-block;
+    margin-bottom: 0;
+}
+.NewsContentSubTitle{
+    font-weight:bold;
+    font-size: 30px;
+    margin: 10px 0px 10px 0px;
+}
+.NewsContentDate{
+    margin: 0px 20px 30px -15px;
+}
+.NewsContentDate{
+    margin: 0px 20px 30px -15px;
+}
+.NewsContentText{
+    margin: 0px 20px 100px -15px;
+
+}
+.NewsContentTitle{
+    border-left: #f8e4ac 20px solid;
+    font-weight:bold;
+    width: 180px;
+    font-size: 30px;
+    box-sizing: border-box;
+    /* border-radius: 20px; */
+    text-align: center;
+     padding: 0px -10px;
+    /*margin-top: 60px;
+    margin-bottom: 30px; */
+    /* background-color: #f8e4ac; */
+
+}
+
+.UserFollow-title > h2 {
+    text-align: left;
+    position: relative;
+}
+.UserFollow-title > h2:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -25px;
+    top: 0;
+    width: 18px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: var(--BananaYellow);
+}
+.UserFoster-title > h2 {
+    text-align: left;
+    position: relative;
+    margin: 80px 0px;
+}
+.UserFoster-title > h2:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -25px;
+    top: 0;
+    width: 18px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: var(--BananaYellow);
+}
+
+
+
+#main-sidebar{
+    background-color:#DCE9F3; 
+    
+}
+
+.search{
+    background-color:#DCE9F3; 
+
+}
+
+.serchlist{
+    background-color: #DCE9F3;
+    color: black;
+    font-weight: bold;
+}
+
+.serchlist th{
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.sidebar-mini .sidebar-menu>li>a>i{
+    display: none;
+
+}
+
+.sidebar-mini .sidebar-menu>li:hover>a>i{
+display: inline;
+padding-left: 5px;
+}
+
+.sidebar-mini .sidebar-menu>li{
+    width: 200px;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.sidebar-mini .sidebar-menu>li:hover>a{
+    background-color:white;
+    border-radius: 50px;
+
+    /* background: url("../img/back/cloud-1.png") no-repeat;  */
+}
+
+.sidebar-mini .sidebar-menu>li:active>a{
+    background-color:white;
+    /* background: url("../img/back/cloud-1.png") no-repeat;  */
+}
+
+.sidebar-mini .sidebar-menu>li:visited>a{
+    background-color:white;
+    /* background: url("../img/back/cloud-1.png") no-repeat;  */
+}
+
+.logout{
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.menu-active{
+    background-color:white;
+    border-radius: 50px;
+    display: inline;
+
+}
+
+
+.menu-logo{
+    margin-left: -10px;
+}
+.table-striped tbody tr td{
+    text-align: center;
+}
+.addBtn{
+    margin-bottom: 20px;
+    
+}
+
+.header {
+	
+	margin-bottom: 20px;
+}
+
+.UserFoster-title{
+    margin-top: -50px;
+}
+
+pre.news{
+    font-size: 100%;
+}

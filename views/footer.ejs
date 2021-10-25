@@ -1,0 +1,47 @@
+<!-- footer -->
+<footer class="container-fluid p-0">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<img src="../img/Logo/字.png" alt="" class="footer-logo" />
+			</div>
+			<div class="col-md-6 footer-link">
+				<ul>
+					<li><a href="/AdoptList">毛孩領養</a></li>
+					<li><a href="/KnowList">毛孩知識</a></li>
+				</ul>
+				<ul>
+					<% if ( memberData=="" ){ %>
+						<li><a href="javascript:link()">刊登送養</a></li>
+						<li><a href="javascript:link()">會員專區</a></li>
+						<% }else{ %>
+							<li><a href="/Foster">刊登送養</a></li>
+							<li><a href="/UserEdit">會員專區</a></li>
+							<% } %>
+				</ul>
+				<ul>
+					<li><a href="/NewsList">最新消息</a></li>
+					<li><a href="/">關於我們</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row footer-text">
+			<div class="col-12 content">本站所有資訊來源為會員自行刊登，本站對資訊內容無法確實檢查，如有遺漏或侵犯它人權益由刊登者自行負擔相關責任。 <br />如有任何建議或合作請與我們聯絡
+			</div>
+			<div class="col-12 copy">© 2021 Copyright .tw By MFEE18-No.8</div>
+		</div>
+	</div>
+</footer>
+
+<% if (isGuest) { %>
+	<script>
+		function link() {
+			Swal.fire({
+				text: '請先登入',
+				icon: 'info',
+			}).then(function () {
+				window.location.href = "/member/login"
+			})
+		}
+	</script>
+	<% } %>

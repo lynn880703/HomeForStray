@@ -1,0 +1,164 @@
+<%- include("./Back/Foster.txt") %>
+
+    <!-- 內頁 -->
+    <div class="content-wrapper">
+        <section class="content">
+            <h3 class="title">刊登送養審核</h3>
+            <div class="row">
+
+                <!-- 查詢條件 -->
+                <div class="col-xs-12">
+                    <form action="/BackFosterManage/FosterManageList" method="POST" id="searchForm">
+                        <div class="search">
+                            <!-- 標題 -->
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    <label>寵物暱稱：</label>
+                                    <input type="text" name="PetName" class="form-control" id="">
+                                </div>
+                            </div>
+
+                            <!-- 換行 -->
+                            <div class="clearfix"></div>
+
+                            <!-- 送審日期 -->
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <label>送審日期：</label>
+                            </div>
+                            <div class="clearfix"></div>
+                            <!-- 送審日期(起) -->
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    <input name="FosterDateStart" type="date" class="form-control inputNotOutline">
+                                </div>
+                            </div>
+                            <!-- 送審日期~ -->
+                            <label class="s-Elab">～</label>
+                            <!-- 送審日期(迄) -->
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    <input name="FosterDateEnd" type="date" class="form-control inputNotOutline">
+                                </div>
+                            </div>
+
+                            <!-- 換行 -->
+                            <div class="clearfix"></div>
+
+                            <!-- 狀態： -->
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    <label>狀態：</label>
+                                    <div class="clearfix"></div>
+                                    <input type="radio" name="AdoptState" value="1">
+                                    <label for="html" class="MyListLabel">已批准</label>
+                                    <input type="radio" name="AdoptState" value="0">
+                                    <label for="html" class="MyListLabel">未批准
+                                    </label>
+                                </div>
+                            </div>
+
+
+                            <!-- 查詢/清除 -->
+                            <div class="col-xs-12 text-right">
+                                <button type="submit" class="btn btn-primary">查詢</button>
+                                <button type="reset" class="btn btn-primary" onclick="ResetBtn()">清除</button>
+                            </div>
+                            <div class="clearfix"></div>
+
+                        </div>
+                    </form>
+                </div>
+
+
+
+                <div class="clearfix"></div>
+                <!-- 查詢結果 -->
+                <div class="col-xs-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr class="serchlist">
+                                    <th width="10%">編號</th>
+                                    <th width="10%">會員名稱</th>
+                                    <th width="10%">寵物暱稱</th>
+                                    <th width="10%">送審日期</th>
+                                    <!-- <th>審核通過時間</th> -->
+
+                                    <th width="10%">狀態</th>
+                                    <th width="10%">管理</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(var i=0; i < data.length ; i++) { %>
+
+                                    <tr>
+                                        <td>
+                                            <%= i+1 %>
+                                        </td>
+                                        <td>
+                                            <%= data[i].ContactPerson %>
+                                        </td>
+                                        <td>
+                                            <%= data[i].PetName %>
+                                        </td>
+                                        <td>
+                                            <%= (data[i].AdoptDate).toLocaleDateString() %>
+                                        </td>
+                                        <td>
+
+
+                                            <%= (data[i].AdoptState==1 ) ? '已批准' : '未批准' ; %>
+
+                                        </td>
+
+
+                                        <td>
+                                            <a href="/BackFosterManage/FosterManageEdit?PetId=<%= data[i].PetId %>">
+                                                <button class="btn btn-primary" name="EditAdopt"
+                                                    value="">編輯</button></a>
+                                            <!-- <a href="/BackFosterManage/FosterManageDele?PetId=<%= data[i].PetId %>">
+                                                <button class="ListButtonDele" name="DeleAdopt" value="">刪除</button></a> -->
+                                        </td>
+                                    </tr>
+
+                                    <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- 頁碼 -->
+                    <nav aria-label="Page navigation example" class="text-right">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <% if(PageNum> 1) { %>
+                                    <a class="page-link"
+                                        href="/BackFosterManage/FosterManageList?PageNum=<%= (PageNum) - 1%>"
+                                        aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                    <% } %>
+                            </li>
+                            <% for(var a=1; a <=TotalPage ; a++) { %>
+                                <li class="page-item">
+                                    <a class="page-link"
+                                        href="/BackFosterManage/FosterManageList?PageNum=<%= a%>">
+                                        <%= a %>
+                                    </a>
+                                </li>
+                                <% } %>
+                                    <li class="page-item">
+                                        <% if(PageNum < TotalPage) { %>
+                                            <a class="page-link"
+                                                href="/BackFosterManage/FosterManageList?PageNum=<%= (PageNum) + 1%>"
+                                                aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                            <% } %>
+                                    </li>
+                        </ul>
+                    </nav>
+
+                </div>
+        </section>
+    </div>
+    
+    <%- include("./Back/Foot.txt") %>

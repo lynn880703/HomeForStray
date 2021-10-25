@@ -1,0 +1,76 @@
+body ,h3 {
+	font-family: 'Source Sans Pro',sans-serif,'微軟正黑體';
+}
+a {
+	color: #999;
+}
+.sidebar-mini .main-sidebar {
+      background-color: #dfdfdf;
+    }
+
+.sidebar-mini .sidebar a {
+    color: #333;
+}
+
+.sidebar-mini .sidebar-menu>li.header {
+    color: #fff;
+    background: #c9c9c9 !important;
+    border-bottom: 2px solid #999;
+}
+.is-username {
+
+	margin: 0 15px 0px 5px; 
+}
+
+.sidebar-mini .sidebar-menu>li:hover>a, .skin-green .sidebar-menu>li.active>a {
+	background-color: #aaaaaa;
+
+}
+.sidebar-mini .sidebar-menu>li>.treeview-menu {
+	background-color: #c6c6c6;
+}
+.sidebar-mini  .treeview-menu>li>a {
+    color: #333;
+}
+
+.navbar-static-top h3 {
+	margin: 0;
+	padding: 13px 0px 0px 15px;
+	color: #111;
+	font-weight: 900;
+}
+
+.navbar-static-left {
+
+	text-align: left;
+}
+
+.content-header>.breadcrumb {
+	float: left;
+	position: relative;
+}
+/*.skin-green .main-header .navbar {
+	background-color:  #ffd034;
+}
+.skin-green .main-header .logo{
+	background-color: #ffd034;
+}
+.skin-green .main-header .logo:hover {
+	background-color:#ffd034;
+}
+.skin-green .sidebar-menu>li:hover>a, .skin-green .sidebar-menu>li.active>a {
+    color: #fff;
+    border-left-color: #ffd034;
+}*/
+
+@media (min-width: 767px) {
+	.main-header .logo .logo-lg img {
+	width: 100%;}
+	
+}
+@media screen and (min-width:360px) and (max-width: 767px) {
+	.main-header .logo  {
+		text-align: left;
+	}
+	
+}

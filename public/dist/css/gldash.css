@@ -1,0 +1,91 @@
+ul, li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.sidebar {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+#qaContent ul.accordionPart li {
+	border-bottom: solid 1px #e3e3e3;
+	padding-bottom: 0px;
+	padding-top: 12px;
+}
+
+#qaContent ul.accordionPart li .qa_title_on {
+	text-decoration: none;
+}
+#qaContent ul div {
+	padding-left: 20px;
+	padding-bottom: 10px;
+}
+#qaContent ul li:hover {
+	background-color: #dfdfdf;
+}
+#qaContent ul li ul.gl-opens li {
+	background-color: #fff;
+	padding-left: 0px;
+	padding-left: 20px;
+	padding-bottom: 10px;
+}
+
+.navbar-brand {
+	height: auto;
+}
+
+body {
+	padding-top: 60px;
+}
+
+h1.page-header ,h2.sub-header,.form-signin-heading {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif,'微軟正黑體';
+}
+
+.form-signin img.logo {
+	width: 100%;
+}
+.gl-menu li span {
+			font-size: 18px;
+	padding-top:2%;
+	height: 60px;
+}
+.gl-menu li {
+	
+	box-shadow: 1px 1px 999;
+ 	background-color: #ddd;
+	
+}
+.nav>li>span {
+	background-color: #eee;
+	position: relative;
+    display: block;
+    padding: 10px 15px;
+    text-align: center;
+}
+.nav-pills>li.active>span, .nav-pills>li.active>span:focus, .nav-pills>li.active>span:hover {
+     color: #fff;
+    background-color: #337ab7;
+}
+
+@media (min-width: 1024px) {
+	.gl-menu li span {
+
+	padding-top:3%; 
+	}
+	.gl-menu li { 
+		-webkit-clip-path: polygon(88% 0, 100% 50%, 89% 100%, 0% 100%, 0 54%, 0% 0%);
+		clip-path: polygon(88% 0, 100% 50%, 89% 100%, 0% 100%, 0 54%, 0% 0%);
+	}
+
+	.gl-menu li:last-child {
+		-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+	}
+
+	.gl-200 {
+
+		width: 200px !important;
+	}
+}

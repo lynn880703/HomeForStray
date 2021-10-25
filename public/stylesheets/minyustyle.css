@@ -1,0 +1,694 @@
+@font-face {
+    font-family: open;
+    src:url(../jf-openhuninn-1.1/jf-openhuninn-1.1.ttf);
+    }
+
+    * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: "jf-openhuninn-1.1"; /* 字體使用粉圓體 */
+    font-size: 22px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    }
+
+    .ViewTitle {
+        background-color: #F8E4AC;
+        padding: 20px 50px;
+        border: 1px black solid;
+    }
+
+    .Title {
+        background-color: #F8E4AC;
+        padding: 10px 20px;
+        border: 1px black solid;
+    }
+
+    .Content {
+        background-color: #F6F4E8;
+        padding: 20px 10px;
+        border: 1px black solid;
+    }
+    
+    .ContentView {
+        background-color: #F6F4E8;
+        padding: 20px 60px;
+        border: 1px black solid;
+    }
+     
+    #MyLabel {
+        margin: auto;
+        padding: 5px;
+    }
+
+    #MyTable {
+        width: 700px;
+        height: 500px;
+        border-collapse: collapse;
+
+    }
+
+    #MyDivView {
+        text-align: center;
+        /* background-color: #F6F4E8; */
+       width: 1000px;
+        height: 1000px;
+        border-radius: 20px;
+        margin-bottom: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #MyDivAdd {
+        text-align: center;
+        /* background-color: #F6F4E8; */
+        
+        height: 1200px;
+        border-radius: 20px;
+        margin-bottom: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #MyDiv {
+        text-align: center;
+
+        /* background-color: #F6F4E8; */
+      
+        height: 800px;
+        border-radius: 20px;
+
+        margin-bottom: 100px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .MySubmitView {
+        background-color: var(--RomanticOrange);
+        border: 0;
+        padding: 10px;
+        margin-top: 10px;
+        font-weight: 600;
+        width: 80px;
+        border-radius: 50px;
+        box-shadow: 2px 2px 5px rgb(0 0 0 / 30%);
+    }
+
+    .MySubmitSent {
+        background-color: var(--FrosteeGreen);
+        border: 0;
+        padding: 5px;
+        font-weight: 600;
+        width: 80px;
+        border-radius: 50px;
+        box-shadow: 2px 2px 5px rgb(0 0 0 / 30%);
+    }
+    .MySubmitCancel {
+        background-color: var(--RomanticOrange);
+        border: 0;
+        padding: 5px;
+        font-weight: 600;
+        width: 80px;
+        border-radius: 50px;
+        box-shadow: 2px 2px 5px rgb(0 0 0 / 30%);
+    }
+
+    #MySubmitId {
+        padding: 20px;
+    }
+
+    .ImgEdit {
+        width: 100px;
+        height: 80px;
+        float: left;
+    }
+
+    #ListDiv {
+        background-color: var(--cornsilkBreadcrumb);
+        width: 1000px;
+        border: 5px #ED7D32 solid;
+        border-radius: 20px;
+    }
+
+    #ContentText {
+        width: 400px;
+        height: 300px;
+    }
+
+    
+    .TitleButton {
+        background-color: var(--FrosteeGreen);
+        border: 0;
+        padding: 5px;
+        font-weight: 600;
+        width: 120px;
+        border-radius: 20px;
+        box-shadow: 2px 2px 5px rgb(0 0 0 / 30%);
+        
+    }
+
+    #FosterTable {
+        margin: auto;
+    }
+
+   
+    
+    #TitleButtonDiv {
+        height: 80px;
+        float:right ;
+    }
+
+    /* #TitleImgDiv {
+        width: 70%;
+        background-color: #4b5264;
+    } */
+
+    #TitleText {
+        width: 450px;
+        height: 40px;
+    }
+
+    #MyListTable {
+        text-align: left;
+        background-color: transparent;
+        margin: auto;
+    }
+
+    #tilde {
+        text-align: center;
+    }
+
+    #ListText {
+        width: 415px;
+    }
+
+    .MyListLabel {
+        display: inline;
+    }
+
+    table.blueTable {
+        /* border: 2px solid #C1C1C1; */
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        background-color: var(--beige);
+        margin-top: 30px
+        
+    }
+
+    table.blueTable td,
+    table.blueTable th {
+        /* border: 2px solid #C4C4C4; */
+        padding: 5px 20px;
+        border-bottom: 2px solid #cccecf;
+    }
+
+    /*         
+    table.blueTable tbody td {
+        font-size: 22px;
+    } */
+
+    table.blueTable tr:nth-child(even) {
+        background-color: var(--beige);
+        border-bottom: 2px solid #cccecf;
+    }
+
+    table.blueTable thead {
+        background: var(--BananaYellow);
+        border-bottom: 2px solid #cccecf;        }
+
+    table.blueTable thead th {
+        /* font-size: 22px; */
+        /* font-weight: bold; */
+        /* color: #35383b; */
+        border-top: 2px solid #cccecf;
+        border-bottom: 2px solid #cccecf;
+    }
+
+    table.blueTable thead th:first-child {
+        border-left: none;
+    }
+
+    #MyblueTable {
+        width: 1000px;
+        padding: 0px;
+        margin-top: 40px;
+        margin-bottom : 80px ;
+    }
+
+  
+
+    .ListButtonEdit {
+        background-color: var(--FrosteeGreen);
+        border: 0;
+        padding: 5px;
+        font-weight: 600;
+        width: 80px;
+        border-radius: 50px;
+        box-shadow: 2px 2px 5px rgb(0 0 0 / 30%);
+    }
+    .ListButtonDele {
+        background-color: var(--RomanticOrange);
+        border: 0;
+        padding: 5px;
+        font-weight: 600;
+        width: 80px;
+        border-radius: 50px;
+        box-shadow: 2px 2px 5px rgb(0 0 0 / 30%);
+    }
+
+    .ListSubmit {
+        background-color: var(--FrosteeGreen);
+        border: 0;
+        padding: 5px;
+        font-weight: 600;
+        width: 80px;
+        border-radius: 50px;
+        box-shadow: 2px 2px 5px rgb(0 0 0 / 30%);
+    }
+
+    #MyDivTitle {
+        padding: 0;
+        width: 600px;
+    }
+    #MyDivTitleList{
+        padding: 0;
+        width: 1000px;
+    }
+
+    .FosterTd {
+       padding-left: 10px;
+       padding-right: 10px;
+    }
+
+    :root {
+        --BananaYellow: #f8e4ac; /*標題的標籤色、button-黃、前台分頁箭頭鈕、block-黃(註冊介面、領養資訊、毛孩知識)*/
+        --FrosteeGreen: #deedcc; /* button-綠 */
+        --RomanticOrange: #fdc29a; /* button-橘、會員登入介面-線條 */
+        --lightRed: #ffb8ac; /*button-粉*/
+        --lightYellow: #fffde7; /*block-淡黃(領養資訊)*/
+        --nileBlue: #4b6454; /*block-土耳其綠(領養資訊)*/
+        --ivory: #f5f5f5; /*block-象牙白(首頁區塊、毛孩領養區塊)*/
+        /* --beige: #f6f4e8; block-米白(登入介面、會員中心介面區塊) */
+        --cornsilk: #f4f3ec; /* block-玉米鬚白(刊登送養 、麵包屑(50%半透) )*/
+        --cornsilkBreadcrumb: rgba(244,243,236,0.7); /* block-玉米鬚白(刊登送養 、麵包屑(50%半透) )*/
+        --pearl: #dedccd; /* input-背景色 */
+        --seaFoam: #afc2cb; /*footer-background Color*/
+        --red: #ff0202;
+        --white: #fff;
+        --TextColor: #1d3124; /* 字體顏色*/
+        --TextTitle: 30px; /*標題 字體大小 nav_bar*/
+        --TextContent: 22px; /*內容 字體大小*/
+        --zindex00: 30000;
+        --zindex01: 20000;
+        --zindex02: 10000;
+        --zindex03: 9000;
+    }
+
+    html {
+        height: 100%;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        background-image: url(../img/background/後台background.png);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+    }
+
+    a {
+        text-decoration: none;
+        color: #1d3124;
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: #1d3124;
+    }
+    /* 通用 */
+    .title{
+        width: 180px;
+        font-size: 30px;
+        box-sizing: border-box;
+        border-radius: 20px;
+        text-align: center;
+        padding: 10px 0;
+        margin-top: 60px;
+        margin-bottom: 70px;
+        background-color: #f8e4ac;
+    }
+    .title-md{
+        width: 200px;
+        font-size: 30px;
+        box-sizing: border-box;
+        border-radius: 20px;
+        text-align: center;
+        padding: 10px 0;
+        margin-top: 60px;
+        margin-bottom: 70px;
+        background-color: #f8e4ac;
+    }
+    .title-lg{
+        width: 230px;
+        font-size: 30px;
+        box-sizing: border-box;
+        border-radius: 20px;
+        text-align: center;
+        padding: 10px 0;
+        margin-top: 60px;
+        margin-bottom:70px;
+        background-color: #f8e4ac;
+    }
+    /* 圖片輪播 上下模式 */
+    /* .carousel-fade .carousel-inner .carousel-item {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        transition-property: opacity;
+    }
+    .carousel-fade .carousel-inner .carousel-item,
+    .carousel-fade .carousel-inner .active.carousel-item-left,
+    .carousel-fade .carousel-inner .active.carousel-item-right {
+        opacity: 0;
+    }
+    .carousel-fade .carousel-inner .active,
+    .carousel-fade .carousel-inner .carousel-item-next.carousel-item-left,
+    .carousel-fade .carousel-inner .carousel-item-prev.carousel-item-right {
+        opacity: 1;
+    }
+    
+    .carousel-vertical .carousel-inner .carousel-item-next.carousel-item-left,
+    .carousel-vertical .carousel-inner .carousel-item-prev.carousel-item-right {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    .carousel-vertical .carousel-inner .active.carousel-item-left,
+    .carousel-vertical .carousel-inner .carousel-item-prev {
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
+    .carousel-vertical .carousel-inner .active.carousel-item-right,
+    .carousel-vertical .carousel-inner .carousel-item-next {
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+    } */
+    /* 圖片尺寸 */
+    /* .PictureSize {
+        width: 800px;
+        height: 480px;
+    } */
+    
+    /* button */
+    /* 後台 */
+    /* .btnMd-back{   
+        width: 80px;
+        border-radius: 50px;
+    }
+    .btnSm{
+        width: 100px;
+        border-radius:20px;
+    }
+    .btnMd{
+        width: 100px;
+        height: 50px;
+        border-radius: 10px;
+        font-size: 24px;
+    }
+    
+    .btnLg{
+        width: 120px;
+        border-radius: 20px;
+    }
+    .btnXl{
+        width: 130px;
+        border-radius: 10px;
+    }
+    .btn-green{
+        background-color:var(--FrosteeGreen);
+        border: 0;
+        padding: 5px;
+        font-weight: 600;
+    }
+    .btn-BananaYellow{
+        background-color:var(--BananaYellow);
+        border: 0;
+        padding: 5px;
+        font-weight: 600;
+    }
+    .btn-lightRed{
+        background-color:var(--lightRed);
+        border: 0;
+        padding: 5px;
+        font-weight: 600;
+    }
+    .btn-lightOrange{
+        background-color:var(--RomanticOrange);
+        border: 0;
+        padding: 5px;
+        font-weight: 600;
+    } */
+    /* header */
+    /* 刪除bootstrap的button按鈕點擊後藍色邊框 */
+    /* .btn:focus,.btn:active:focus,
+    .btn.active:focus,.btn.focus,
+    .btn:active.focus,.btn.active.focus {  
+     outline: none;   
+     border-color: transparent;   
+     box-shadow:none;
+    } */
+    /* navbar */
+    /* .header {
+        background: url(../img/background/header.PNG);
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: space-between;
+    } */
+    .logoImg {
+        margin: 5px 15px;
+    }
+    .logo {
+        height: 130px;
+        width: 150px;
+    }
+    .logo-text {
+        height: 100px;
+        width: 200px;
+    }
+    /* 桌機版樣式-導覽列樣式 */
+    .hamBar {
+        display: none;
+        align-self: center;
+        margin: 0 20px;
+    }
+    .menu {
+        float: right;
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+    }
+    .menu>li {
+        float: left;
+    }
+    .menu>li>a {
+        padding: 20px;
+        color: #1d3124;
+        font-size: 30px;
+    }
+    .menu>li>a:hover {
+        border-radius: 50px;
+        background-color: #afc2cb;
+        color: #fff;
+    }
+    /* 漢堡點擊後 */
+    .burgar-menu-show .burgar-menu {
+        max-height: 500px;
+    }
+    .hamBar-icon {
+    display: none;
+    }
+    /* 平板狀態 */
+    @media screen and (max-width: 768px) {
+        /* header */
+        .header{
+            padding: 0;
+        }
+        .logo {
+            height: auto;
+            width: 100px;
+        }
+        .logo-text {
+            height: 60px;
+            width: 100px;
+        }
+/* 漢堡盒展開樣式 */
+.menu{
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 1s;
+    position: absolute;
+    z-index: 100;
+    top: 103px;
+    left:0;
+    right:-22px;
+    background: #e3f2fd;
+    }
+    .menu>li{
+        float: none; /*漢堡盒展開樣式直向*/
+        border-bottom: 1px solid #aaa;
+    }
+    .menu>li>a{
+        display: block;
+        transition: all 0.3s;
+        text-align: center;
+        font-size: 30px;
+    }
+    .menu>li>a:hover{
+        background: #afc2cb;
+        border-radius: 0;
+        color: #fff;
+    }
+    .burgar-menu {
+        display: block;
+        float: right;
+        margin-right: 1em;
+        line-height: 50px;
+    }
+    .ham {
+        display: block;
+        line-height: 50px;
+    }    
+    .hamBar {
+        margin-right: 5px;
+    }
+    }
+    
+    /* user-menu */
+    .user{
+        align-self: center;
+    }
+    .user-icon {
+        width: 30px;
+    }
+    .user-menu {
+        background-color: #f8e4ac;
+        border-radius: 20px;
+    }
+    .user-img {
+        width: 150px;
+        height: 150px;
+        margin: 20px auto;
+        background-color: #afc2cb;
+        border-radius: 50%;
+    }
+    /* .user-menu >ul> li:first-of-type {
+        text-align: center;
+    } */
+    .user-menu >ul> li {
+        margin: 10px 30px;
+    }
+    .user-menu >ul> li > a:hover {
+        color: #1d3124;
+        text-decoration: none;
+    }
+    /* breadcrumb */
+    .breadcrumb-block{
+        background-color: var(--cornsilkBreadcrumb);
+        /* height: 100%; */
+
+    }
+    .breadcrumb{
+        background-color:transparent;
+    }
+    /* footer */
+    .footer {
+        background-color: var(--seaFoam);
+        margin-top: 0px;
+        box-sizing: border-box;
+        /* position: absolute;
+        bottom: 0; */
+    }
+    .copyright {
+        text-align: center;
+        height: 100%;
+        padding: 30px;
+        font-size: 18px;
+    }
+    /* 會員資訊 */
+    table{
+        text-align: center;
+        background-color:var(--beige);
+        margin-top: 30px;
+    }
+    /* 分頁 */
+    .pagination{
+        margin: 80px 0px;
+    }
+    .pagination > li > a{
+        background:none;
+        border: none;
+        color: var(--TextColor);
+    }
+    .pagination > li > a:focus,
+    .pagination > li > a:hover,
+    .pagination > li > span:focus,
+    .pagination > li > span:hover
+    {
+        color: #5a5a5a;
+        background-color:var(--BananaYellow);
+        border-radius: 50px;
+        outline: none;
+        border-color: transparent;   
+        box-shadow:none; 
+    }
+
+
+    /* 新增 按鈕樣式 */
+    .btnLg {
+        width: 120px;
+        border-radius: 20px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    .btn-lightOrange {
+        background-color: var(--RomanticOrange);
+        border: 0;
+        padding: 5px;
+        font-weight: 600;
+    }
+    /* 新增 按鈕樣式 end */
+
+    /* 上傳圖片 按鈕 */
+    .uploadImg{
+        cursor: pointer;
+    }
+    /* 輸入內容方塊 */
+    #textArea{
+        resize : none;
+        border : 0;
+    }
+    /* 輸入標題方塊 */
+    #TitleText{
+        border : 0;
+    }
+
+    /* 輸入 去除邊框 */
+    .inputNotOutline:focus{
+        outline : 0; 
+    }
+
+    /* 發布日期格式 */
+    .dateStyle{
+        text-align: left;
+        padding-left:50px;
+    }
+
+    #PetDeleInput {
+      display: none; 
+    } 

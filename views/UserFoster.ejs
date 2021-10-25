@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>浪浪有窩_我的送養文</title>
+
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+		integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+		crossorigin="anonymous"></script>
+	<!-- sweetalert2 -->
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+	<!-- 引用style.css -->
+	<link rel="stylesheet" type="text/css" href="../css/annistyle.css" />
+
+	<!-- css -->
+	<link rel="stylesheet" href="stylesheets/style.css" />
+	<title>浪浪有窩</title>
+</head>
+
+<body>
+	<!-- 引入header -->
+	<%- include Header %>
+
+		<!-- 主題：我的送養文 -->
+		<!-- 目的：顯示使用者 過去送養的紀錄 及 領樣的記錄 及 刊登的狀況 -->
+		<div class="container UserFoster-title">
+			<h2>我的送養文</h2>
+		</div>
+		<div class="container">
+			<button class="btnLg btn-lightOrange">我想送養</button>
+			<table class="table table-hover">
+				<thead>
+					<tr class="UserFoster-thead">
+						<th scope="col">編號</th>
+						<th scope="col">寵物暱稱</th>
+						<th scope="col">刊登日期</th>
+						<th scope="col">狀態</th>
+						<th scope="col">認養狀態</th>
+						<th scope="col">功能</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%var sn=1; //宣告sn=編號 %>
+						<% for(var i=0; i < FosterData.length; i++) { %>
+							<tr>
+								<td>
+									<%= sn %>
+								</td>
+								<td>
+									<%= (FosterData[i].PetName) %>
+								</td>
+								<td>
+									<%= (FosterData[i].AdoptDate).toLocaleDateString()//刊登日期 %>
+								</td>
+								<td>
+									<%= (FosterData[i].AuditState)//審核狀態 %>
+								</td>
+								<td>
+									<!-- <%= (FosterData[i].AdoptState)//認養狀態 %> -->
+									<%= (FosterData[i].AdoptState==1 ) ? '已批准' : '未批准' ; %>
+								</td>
+								<td>
+									<button class="btnMd-back btn-green">
+										<a href="">編輯</a>
+									</button>
+								</td>
+							</tr>
+							<% sn++; %>
+								<% } %>
+				</tbody>
+			</table>
+		</div>
+
+		<!-- 分頁 -->
+		<nav aria-label="Page navigation example ">
+			<ul class="pagination justify-content-center">
+				<li class="page-item">
+					<a class="page-link" href="/UserFoster?PageNo=<%= (PageNo-1) %>" title="上一頁" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+					</a>
+				</li>
+				<% for(var i=1; i <=TotalPage; i++) { %>
+					<li class="page-item">
+						<a class="page-link" href="/UserFoster?PageNo=<%= i%>">
+							<%= i%>
+						</a>
+					</li>
+					<% } %>
+						<li class="page-item">
+							<a class="page-link" href="/UserFoster?PageNo=<%= (PageNo+1) %>" title="下一頁"
+								aria-label="Next">
+								<span aria-hidden="true">&raquo;</span>
+							</a>
+						</li>
+			</ul>
+		</nav>
+		<!-- Footer -->
+		<% include footer%>
+			<script>
+				// 漢堡選單
+				$(document).ready(function () {
+					$(".burgar-menu").on("click", function (e) {
+						$("body").toggleClass("burgar-menu-show");
+					});
+				});
+			</script>
+</body>
+
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>浪浪有窩</title>
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+    integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+    crossorigin="anonymous"></script>
+  <!-- sweetalert2 -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- css -->
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <title>浪浪有窩</title>
+</head>
+
+<body>
+  <!-- 引入header -->
+  <%- include Header %>
+
+    <!-- 搜尋區塊 -->
+    <div class="container">
+      <div class="row">
+        <div class="col col-md-8 search-adopList-left">
+          <form action="/AdoptList" method="GET">
+            <div class="row">
+              <div class="col">
+                <div class="form-group adopList-form-group">
+                  <span class="adopList-icon"><img src="../img/icon/placeholder.png" alt=""></span>
+                  <select class="form-control" id="exampleFormControlSelect1" name="CityId">
+                    <option label="地區"></option>
+                    <option value="1">台北市</option>
+                    <option value="2">基隆市</option>
+                    <option value="3">新北市</option>
+                    <option value="4">宜蘭縣</option>
+                    <option value="5">宜蘭市</option>
+                    <option value="6">桃園市</option>
+                    <option value="7">新竹縣</option>
+                    <option value="8">新竹市</option>
+                    <option value="9">苗栗縣</option>
+                    <option value="10">苗栗市</option>
+                    <option value="11">台中市</option>
+                    <option value="12">彰化縣</option>
+                    <option value="13">彰化市</option>
+                    <option value="14">南投縣</option>
+                    <option value="15">南投市</option>
+                    <option value="16">雲林縣</option>
+                    <option value="17">嘉義縣</option>
+                    <option value="18">嘉義市</option>
+                    <option value="19">台南市</option>
+                    <option value="20">高雄市</option>
+                    <option value="21">屏東縣</option>
+                    <option value="22">屏東市</option>
+                    <option value="23">台東縣</option>
+                    <option value="24">台東市</option>
+                    <option value="25">花蓮縣</option>
+                    <option value="26">花蓮市</option>
+                    <option value="27">澎湖縣</option>
+                    <option value="28">金門縣</option>
+                    <option value="29">連江縣</option>
+                    <option value="30">蘭嶼</option>
+                    <option value="31">馬祖</option>
+                    <option value="32">綠島</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group adopList-form-group">
+                  <span class="adopList-icon"><img src="../img/icon/gender.png" alt=""></span>
+                  <select class="form-control" id="exampleFormControlSelect1" name="PetGender">
+                    <option label="性別"></option>
+                    <option value="1">公</option>
+                    <option value="0">母</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group adopList-form-group">
+                  <span class="adopList-icon"><img src="../img/icon/paw.png" alt=""></span>
+                  <select class="form-control" id="exampleFormControlSelect1" name="PetSpecies">
+                    <option label="種類"></option>
+                    <option value="0">狗</option>
+                    <option value="1">貓</option>
+                    <option value="2">其他</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <button type="submit" class="btnSm btn-BananaYellow btn-adopList" value="">查詢</button>
+            </div>
+        </div>
+        </form>
+      </div>
+      <div class="row justify-content-end">
+        <div class="col col-md-7 adopList-search-txt">此區的送養動物均由送養人刊登，如有任何領養問題請直接與送養人聯繫。領養前請謹慎考慮，不隨意棄養。</div>
+      </div>
+    </div>
+    <!-- 清單列表 -->
+    <div class="container">
+      <div class="row adopList-group mt-20">
+        <% for(var i=0; i < data.length; i++) { %>
+          <%if(data[i].PetSpecies=='0' ){%>
+            <div class="col-12 col-md-12 col-lg-5 adopt-bg-dog h-100">
+              <%}else if(data[i].PetSpecies=='1' ){%>
+                <div class="col-12 col-md-12 col-lg-5 adopt-bg-cat h-100">
+                  <%}else{%>
+                    <div class="col-12 col-md-12 col-lg-5 adopt-bg-other h-100">
+                      <%}%>
+                        <div class="row adop-img justify-content-center">
+                          <img src="<%=data[i].PetImgURL%>" class="img-fluid">
+                          <!-- <img src=..img/paw class="img-fluid"> -->
+                        </div>
+
+                        <div class="row adop-text justify-content-center">
+                          <div class="col-12 adop-text-con adop-name">
+                            <%= data[i].PetName %>
+                          </div>
+                          <div class="col-3 col-md-3 col-lg-4 adop-text-con"><img src="../img/icon/paw.png" alt=""
+                              class="adopitem-icon">
+                            <% var PS=data[i].PetSpecies; if(PS==0) { %>
+                              <%= PS='狗' %>
+                                <% } else if(PS==1){ %>
+                                  <%= PS='貓' %>
+                                    <% } else { %>
+                                      <%= PS='其他' %>
+                                        <% } %>
+                          </div>
+                          <!-- <div class="col-6 adop-text-con"><img src="../img/icon/品種.png" alt="" class="adopitem-icon"><%= data[i].PetBreed %></div> -->
+                          <div class="col-3 col-md-2 col-lg-3 adop-text-con"><img src="../img/icon/sex1.png" alt=""
+                              class="adopitem-icon">
+                            <%= (data[i].PetGender==1) ? '公' : '母' %>
+                          </div>
+                          <div class="col-3 col-md-3 col-lg-5 adop-text-con"><img src="../img/icon/地區.png" alt=""
+                              class="adopitem-icon">
+                            <!-- <%= (data[i].CityName) %> -->
+                            <% var CI=data[i].CityId; if(CI==1) { %>
+                              <%= CI='台北市' %>
+                                <% } else if(CI==2){ %>
+                                  <%= CI='基隆市' %>
+                                    <% } else if(CI==3){ %>
+                                      <%= CI='新北市' %>
+                                        <% } else if(CI==4){ %>
+                                          <%= CI='宜蘭縣' %>
+                                            <% } else if(CI==5){ %>
+                                              <%= CI='宜蘭市' %>
+                                                <% } else if(CI==6){ %>
+                                                  <%= CI='桃園市' %>
+                                                    <% } else if(CI==7){ %>
+                                                      <%= CI='新竹縣' %>
+                                                        <% } else if(CI==8){ %>
+                                                          <%= CI='新竹市' %>
+                                                            <% } else if(CI==9){ %>
+                                                              <%= CI='苗栗縣' %>
+                                                                <% } else if(CI==10){ %>
+                                                                  <%= CI='苗栗市' %>
+                                                                    <% } else if(CI==11){ %>
+                                                                      <%= CI='台中市' %>
+                                                                        <% } else if(CI==12){ %>
+                                                                          <%= CI='彰化縣' %>
+                                                                            <% } else if(CI==13){ %>
+                                                                              <%= CI='彰化市' %>
+                                                                                <% } else if(CI==14){ %>
+                                                                                  <%= CI='南投縣' %>
+                                                                                    <% } else if(CI==15){ %>
+                                                                                      <%= CI='南投市' %>
+                                                                                        <% } else if(CI==16){ %>
+                                                                                          <%= CI='雲林縣' %>
+                                                                                            <% } else if(CI==17){ %>
+                                                                                              <%= CI='嘉義縣' %>
+                                                                                                <% } else if(CI==18){ %>
+                                                                                                  <%= CI='嘉義市' %>
+                                                                                                    <% } else
+                                                                                                      if(CI==19){ %>
+                                                                                                      <%= CI='台南市' %>
+                                                                                                        <% } else
+                                                                                                          if(CI==20){ %>
+                                                                                                          <%= CI='高雄市'
+                                                                                                            %>
+                                                                                                            <% } else
+                                                                                                              if(CI==21){
+                                                                                                              %>
+                                                                                                              <%=
+                                                                                                                CI='屏東縣'
+                                                                                                                %>
+                                                                                                                <% }
+                                                                                                                  else
+                                                                                                                  if(CI==22){
+                                                                                                                  %>
+                                                                                                                  <%=
+                                                                                                                    CI='屏東市'
+                                                                                                                    %>
+                                                                                                                    <% }else
+                                                                                                                      if(CI==23){
+                                                                                                                      %>
+                                                                                                                      <%=
+                                                                                                                        CI='台東縣'
+                                                                                                                        %>
+                                                                                                                        <% }
+                                                                                                                          else
+                                                                                                                          if(CI==24){
+                                                                                                                          %>
+                                                                                                                          <%=
+                                                                                                                            CI='台東市'
+                                                                                                                            %>
+                                                                                                                            <% }
+                                                                                                                              else
+                                                                                                                              if(CI==25){
+                                                                                                                              %>
+                                                                                                                              <%=
+                                                                                                                                CI='花蓮縣'
+                                                                                                                                %>
+                                                                                                                                <% }
+                                                                                                                                  else
+                                                                                                                                  if(CI==26){
+                                                                                                                                  %>
+                                                                                                                                  <%=
+                                                                                                                                    CI='花蓮市'
+                                                                                                                                    %>
+                                                                                                                                    <% }else
+                                                                                                                                      if(CI==27){
+                                                                                                                                      %>
+                                                                                                                                      <%=
+                                                                                                                                        CI='澎湖縣'
+                                                                                                                                        %>
+                                                                                                                                        <% }
+                                                                                                                                          else
+                                                                                                                                          if(CI==28){
+                                                                                                                                          %>
+                                                                                                                                          <%=
+                                                                                                                                            CI='金門縣'
+                                                                                                                                            %>
+                                                                                                                                            <% }
+                                                                                                                                              else
+                                                                                                                                              if(CI==29){
+                                                                                                                                              %>
+                                                                                                                                              <%=
+                                                                                                                                                CI='連江縣'
+                                                                                                                                                %>
+                                                                                                                                                <% }
+                                                                                                                                                  else
+                                                                                                                                                  if(CI==30){
+                                                                                                                                                  %>
+                                                                                                                                                  <%=
+                                                                                                                                                    CI='蘭嶼'
+                                                                                                                                                    %>
+                                                                                                                                                    <% }
+                                                                                                                                                      else
+                                                                                                                                                      if(CI==31){
+                                                                                                                                                      %>
+                                                                                                                                                      <%=
+                                                                                                                                                        CI='馬祖'
+                                                                                                                                                        %>
+                                                                                                                                                        <% }
+                                                                                                                                                          else
+                                                                                                                                                          if(CI==32){
+                                                                                                                                                          %>
+                                                                                                                                                          <%=
+                                                                                                                                                            CI='綠島'
+                                                                                                                                                            %>
+                                                                                                                                                            <% }
+                                                                                                                                                              %>
+                          </div>
+                          <button class="btn-adopt btn-White btn-adopitem"><a
+                              href="/AdoptContent?id=<%= data[i].PetId %> & PageNum=<%= PageNum %>">詳細</a></button>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+            <!-- 分頁 -->
+            <nav aria-label="Page navigation example ">
+              <ul class="pagination justify-content-center">
+                <li class="page-item">
+                  <% if(PageNum> 1) { %>
+                    <a class="page-link"
+                      href="/AdoptList?CityId=<%=req.query.CityId %>&PetGender=<%=req.query.PetGender%>&PetSpecies=<%=req.query.PetSpecies%>&PageNum=<%=(PageNum-1)%>"
+                      aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                    <% } %>
+                </li>
+
+                <% for(var a=1; a <=TotalPage ; a++) { %>
+                  <li class="page-item"><a class="page-link"
+                      href="/AdoptList?CityId=<%=req.query.CityId%>&PetGender=<%=req.query.PetGender%>&PetSpecies=<%=req.query.PetSpecies%>&PageNum=<%=a%>">
+                      <%= a %>
+                    </a>
+                  </li>
+                  <% } %>
+
+                    <li class="page-item">
+                      <% if(PageNum < TotalPage) { %>
+                        <a class="page-link"
+                          href="/AdoptList?CityId=<%=req.query.CityId%>&PetGender=<%=req.query.PetGender%>&PetSpecies=<%=req.query.PetSpecies%>&PageNum=<%=(PageNum+1)%>"
+                          aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                        </a>
+                        <% } %>
+                    </li>
+              </ul>
+            </nav>
+            <!-- Footer -->
+            <% include footer%>
+
+              <script>
+                // 漢堡選單
+                $(document).ready(function () {
+                  $('.burgar-menu').on('click', function (e) {
+                    $('body').toggleClass('burgar-menu-show');
+                  });
+                });
+              </script>
+
+</body>
+
+</html>

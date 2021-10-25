@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>浪浪有窩</title>
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+    integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+    crossorigin="anonymous"></script>
+
+  <!-- sweetalert2 -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- css -->
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <title>浪浪有窩</title>
+
+</head>
+
+<body>
+  <!-- 引入header -->
+  <!--navbar-->
+  <div class="container-fluid header">
+    <a href="#" class="logoImg navbar-brand">
+      <img src="../img/Logo/改I2 2.png" alt="" class="logo">
+      <img src="../img/Logo/字.png" alt="" class="logo-text">
+    </a>
+    <div class="nav">
+      <ul class="menu burgar-menu">
+        <li><a href="/">首頁</a></li>
+        <li><a href="/AdoptList">毛孩領養</a></li>
+        <li><a href="/Foster">刊登送養</a></li>
+        <li><a href="/KnowList">毛孩知識</a></li>
+      </ul>
+      <a href="#" class="hamBar burgar-menu">
+        <i>
+          <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
+        </i>
+      </a>
+      <!-- navbar-user -->
+      <div class="btn-group">
+        <button class="btn  btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          <img src="../img/icon/user.png" alt="" class="user-icon">
+        </button>
+        <div class="dropdown-menu  user-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+          <ul>
+            <!-- 名稱 -->
+            <li><a href="">
+                <%= memberData.MemberName %>
+              </a></li>
+            <!-- 名稱end -->
+            <!-- 判斷是否為管理者(管理者多後台管理功能) -->
+            <% if( memberData.MemberName=="管理者" ){ %>
+              <li><a href="/UserEdit">管理者資訊</a></li>
+              <li><a href="/UserFoster">我的送養文</a></li>
+              <li><a href="/UserFollow">追蹤的毛孩</a></li>
+              <li><a href="/UserMsg">通知</a></li>
+              <li><a href="/Back">後臺管理</a></li>
+              <% }else{ %>
+                <li><a href="/UserEdit">會員資訊</a></li>
+                <li><a href="/UserFoster">我的送養文</a></li>
+                <li><a href="/UserFollow">追蹤的毛孩</a></li>
+                <li><a href="/UserMsg">通知</a></li>
+                <% } %>
+                  <li><a href="/member/logout">登出</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container foster-block mx-auto">
+    <div class="row">
+      <div class="col">
+        <h2>刊登送養</h2>
+      </div>
+      <div class="col">
+        <!-- 送養須知 modal -->
+        <button type="button" class="btn btnXl btn-lightOrange btn-modal" data-toggle="modal"
+          data-target="#staticBackdrop">
+          送養須知
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+          aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">送養須知</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="123">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                刊登人使用由 寵物有窩 寵物資訊平台(以下簡稱「寵物有窩」)所提供之送養資訊刊登服務(以下簡稱「本服務」)時，均受到本「刊登條款」規範。<br>
+                1.寵物有窩 要求所有刊登送養資訊及查看送養資訊者均須加入會員且強制驗證手機號碼，是為了保證所有查看資訊的人都確實的留下紀錄，請送養人注意<br>
+                ，如將動物送養後有查覺異常或有任何虐待事項，請立即通報政府單位，我們將配合政府單位之發文要求提供相關紀錄資料。<br>
+                2.送養資訊不限刊登時間，因此將動物確定送養後請回網站關閉送養資訊，避免造成自身困擾。<br>
+                3.目前不開放剛出生或尚未開眼之動物送養。<br>
+                4.寵物有窩 僅為資訊交流平台，無法保證刊登內容之正確性，刊登人對其刊登內容及送養之行為應負完全之責任，刊登人應提供確實之刊登內容，並自負相關法律責任。<br>
+                5.寵物有窩 對刊登資訊保有最終篩選、修改、刪除及決定刊登與否之權利。<br>
+                6.寵物有窩 秉持以領養代替購買之精神，禁止以下類型之刊登內容：<br>
+                a.要求補貼、認養價、營養費、結紮費等一切任何額外費用或有實際販賣行為。<br>
+                b.捏造不實資訊。<br>
+                c.特意收集個人資料。<br>
+                如有違反上述條款之情事，寵物有窩 可能將其進行會員停權或封鎖之處置。<br>
+                7.刊登人應確定刊登之內容未使用未經授權之文字、圖片、影音或任何形式之資訊。<br>
+                8.刊登人同意授權於本服務刊登之資訊內容無償提供第三人分享、轉載或推廣。<br>
+                9.資訊的審核時間約為 0 - 3 天，請耐心等候。<br>
+              </div>
+              <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btnMd-back btn-lightOrange" data-dismiss="modal">關閉</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <form class="foster-form" action="" enctype="multipart/form-data" method="POST">
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">寵物暱稱</label>
+        <div class="col-9">
+          <input type="text" class="form-control" id="accountNumber" name="PetName">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">種類</label>
+        <div class="col">
+          <div class="form-check form-check-inline">
+            <!-- <input type="text" class="form-control" id="accountNumber" name="PetSpecies"> -->
+            <input class="form-check-input" type="radio" name="PetSpecies" id="inlineRadio1" value="0">
+            <label class="form-check-label" for="inlineRadio1">狗</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="PetSpecies" id="inlineRadio2" value="1">
+            <label class="form-check-label" for="inlineRadio2">貓</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="PetSpecies" id="inlineRadio2" value="2">
+            <label class="form-check-label" for="inlineRadio2">其他</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">品種</label>
+        <div class="col-9">
+          <input type="text" class="form-control" id="accountNumber" name="PetBreed">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">毛色</label>
+        <div class="col-9">
+          <input type="text" class="form-control" id="accountNumber" name="PetFur">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">體型</label>
+        <div class="col">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="BodyType" id="inlineRadio1" value="0">
+            <label class="form-check-label" for="inlineRadio1">小型</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="BodyType" id="inlineRadio2" value="1">
+            <label class="form-check-label" for="inlineRadio2">中型</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="BodyType" id="inlineRadio2" value="2">
+            <label class="form-check-label" for="inlineRadio2">大型</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">年紀</label>
+        <div class="col">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="PetAge" id="inlineRadio1" value="0">
+            <label class="form-check-label" for="inlineRadio1">幼年</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="PetAge" id="inlineRadio2" value="1">
+            <label class="form-check-label" for="inlineRadio2">成年</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="PetAge" id="inlineRadio2" value="2">
+            <label class="form-check-label" for="inlineRadio2">老年</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">性別</label>
+        <div class="col">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="PetGender" id="inlineRadio1" value="1">
+            <label class="form-check-label" for="inlineRadio1">公</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="PetGender" id="inlineRadio2" value="0">
+            <label class="form-check-label" for="inlineRadio2">母</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">結紮狀況</label>
+        <div class="col">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Neuter" id="inlineRadio1" value="1">
+            <label class="form-check-label" for="inlineRadio1">是</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Neuter" id="inlineRadio2" value="0">
+            <label class="form-check-label" for="inlineRadio2">否</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">有無晶片</label>
+        <div class="col">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Microchip" id="inlineRadio1" value="1">
+            <label class="form-check-label" for="inlineRadio1">是</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Microchip" id="inlineRadio2" value="0">
+            <label class="form-check-label" for="inlineRadio2">否</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">區域</label>
+        <div class="col-9">
+          <div class="form-group">
+            <select class="form-control foster-select" id="exampleFormControlSelect1" name="CityId">
+              <option value="1">台北市</option>
+              <option value="2">基隆市</option>
+              <option value="3">新北市</option>
+              <option value="4">宜蘭縣</option>
+              <option value="5">宜蘭市</option>
+              <option value="6">桃園市</option>
+              <option value="8">新竹市</option>
+              <option value="7">新竹縣</option>
+              <option value="9">苗栗縣</option>
+              <option value="10">苗栗市</option>
+              <option value="11">台中市</option>
+              <option value="12">彰化縣</option>
+              <option value="13">彰化市</option>
+              <option value="14">南投縣</option>
+              <option value="15">南投市</option>
+              <option value="18">嘉義市</option>
+              <option value="17">嘉義縣</option>
+              <option value="16">雲林縣</option>
+              <option value="19">台南市</option>
+              <option value="20">高雄市</option>
+              <option value="27">澎湖縣</option>
+              <option value="28">金門縣</option>
+              <option value="21">屏東縣</option>
+              <option value="22">屏東市</option>
+              <option value="23">台東縣</option>
+              <option value="24">台東市</option>
+              <option value="25">花蓮縣</option>
+              <option value="26">花蓮市</option>
+              <option value="29">連江縣</option>
+              <option value="30">蘭嶼</option>
+              <option value="31">馬祖</option>
+              <option value="32">綠島</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">聯絡人</label>
+        <div class="col-9">
+          <input type="text" class="form-control" id="accountNumber" name="ContactPerson">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">聯絡電話</label>
+        <div class="col-9">
+          <input type="text" class="form-control" id="accountNumber" name="ContactPhone">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">個性描述</label>
+        <div class="col-9">
+          <textarea name="PetDes" id="" cols="50" rows="3"></textarea>
+        </div>
+      </div>
+      <!-- 檔案上傳 -->
+
+      <!-- <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">照片</label>
+        <div class="col-9">
+          <div class="form-group">
+            <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
+            <% if(typeof(image) !=='undefined' && image){ %>
+              <img src=" <%= image %> ">
+              <%}%>
+          </div>
+        </div>
+      </div> -->
+
+
+
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">照片</label>
+        <div class="col-9">
+          <div class="form-group">
+            <table class="table">
+              <!-- <small id="emailHelp" class="form-text ">第一張上傳照片為封面照,最多可上傳4張。</small> -->
+              <!-- <thead>
+                <tr>
+                  <th scope="col">新增</th>
+                  <th scope="col">刪除</th>
+                </tr>
+              </thead> -->
+              <tbody>
+                <tr>
+                  <td>
+                    <!-- <button type="file" name="image" class="btn btn-profile btnLg btn-green" onclick="uploadImg()">
+                      新增照片
+                    </button>
+                    <input id="profile-img" accept="image/jpeg,image/png" onchange="importImg()" type="file" hidden /> -->
+
+                    <!-- 隱藏img -->
+                    <img src="" alt="" id="outputImg" height="100" style="display:none">
+                    <!-- 隱藏img end -->
+
+                    <label for="uploadImg" class="btn btn-profile btnLg btn-green">
+                      <input type="file" style="display:none;" accept=".jpg, .jpeg, .png" id="uploadImg" name="image"
+                        onchange="openFile(event)">上傳圖片
+                      <!-- <% if(typeof(image) !=='undefined' && image){ %>
+                        <img src=" <%= image %> ">
+                        <%}%> -->
+                    </label>
+
+
+
+
+
+                  </td>
+
+                  <td><button class="btnLg btn-lightRed">刪除照片</button></td>
+                </tr>
+                <!-- <tr>
+                  <td>
+                    <button class="btn  btnLg btn-green" onclick="uploadImg()">
+                      新增照片
+                    </button>
+                    <input id="profile-img" accept="image/jpeg,image/png" onchange="importImg()" type="file" hidden />
+                  </td>
+                  <td><button class="btnLg btn-lightRed">刪除照片</button></td>
+                </tr>
+                <tr>
+                  <td>
+                    <button class="btn  btnLg btn-green" onclick="uploadImg()">
+                      新增照片
+                    </button>
+                    <input id="profile-img" accept="image/jpeg,image/png" onchange="importImg()" type="file" hidden />
+                  </td>
+                  <td><button class="btnLg btn-lightRed">刪除照片</button></td>
+                </tr>
+                <tr>
+                  <td>
+                    <button class="btn  btnLg btn-green" onclick="uploadImg()">
+                      新增照片
+                    </button>
+                    <input id="profile-img" accept="image/jpeg,image/png" onchange="importImg()" type="file" hidden />
+                  </td>
+                  <td><button class="btnLg btn-lightRed">刪除照片</button></td>
+                </tr> -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="form-group form-check checkbox-foster">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">我已經閱讀 <a href="#" data-toggle="modal"
+              data-target="#staticBackdrop" style="color: blue; text-decoration:underline">注意事項</a> 並同意相關規範</label>
+        </div>
+      </div>
+      <div class="row justify-content-center btn-foster">
+        <!-- <button class="btnMd btn-BananaYellow">送出</button> -->
+        <input type="submit" class="btnMd btn-BananaYellow" value="送出">
+
+        <!-- <button class="btnMd btn-lightRed">取消</button> -->
+        <a href="/Foster"><button type="button" class="btnMd btn-lightRed">取消</button></a>
+      </div>
+
+    </form>
+  </div>
+  <!-- footer -->
+
+  <% include Footer %>
+    <script>
+      // 漢堡選單
+      $(document).ready(function () {
+        $('.burgar-menu').on('click', function (e) {
+          $('body').toggleClass('burgar-menu-show');
+        });
+      });
+
+      // 顯示 outputImg
+      function openFile(event) {
+        var input = event.target; //取得上傳檔案
+        var reader = new FileReader(); //建立FileReader物件
+
+        reader.readAsDataURL(input.files[0]); //以.readAsDataURL將上傳檔案轉換為base64字串
+
+        reader.onload = function () { //FileReader取得上傳檔案後執行以下內容
+          var dataURL = reader.result; //設定變數dataURL為上傳圖檔的base64字串
+          $('#outputImg').attr('src', dataURL).show(); //將img的src設定為dataURL並顯示
+        };
+      }
+      // 照片上傳
+      // const inputFile = document.getElementById("profile-img");
+      // function uploadImg(e) {
+      //   inputFile.click();
+      // }
+      // $('.btn-profile').click(function (e) {
+      //   e.stopPropagation();
+      //   return false;
+
+      // });
+
+      // function importImg(e) {
+      //   const files = inputFile.files;
+      //   if (files.length > 0) {
+      //     const file = files[0];
+
+      //     const size = (file.size / 1024).toFixed(0);
+
+      //     // 確認檔案大小在200K以下,檔案格式為'image/jpeg'或'image/png'
+      //     if (
+      //       parseInt(size, 10) > 200 ||
+      //       (file.type !== "image/jpeg" && file.type !== "image/png")
+      //     ) {
+      //       alert("請上傳200KB以下，JPG/PNG圖檔");
+
+      //       console.log(`file size: ${size}KB`);
+      //     } else {
+      //       console.log("valid file", file);
+      //       console.log("Filename: " + file.name);
+      //       console.log("Type: " + file.type);
+      //     }
+      //   }
+      // }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+		integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+		crossorigin="anonymous"></script>
+	<!-- 搜尋符號引用 -->
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+	 <!-- sweetalert2 -->
+	 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+	<!-- css -->
+	<link rel="stylesheet" href="stylesheets/minyustyle.css">
+	<link rel="stylesheet" href="stylesheets/style.css">
+	<title>浪浪有窩</title>
+	<style>
+		.pic .carousel-special {
+			position: absolute;
+			top: 0;
+			left: 0;
+			padding: 150px;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.6);
+			display: none;
+			align-content: center;
+
+		}
+
+		.pic:hover .carousel-special {
+			display: block;
+		}
+
+		.pic .carousel-special-back {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 30%;
+			background-color: rgba(0, 0, 0, 0.6);
+			display: flex;
+		}
+
+		.pic:hover .carousel-special-back {
+			visibility: hidden;
+		}
+
+		.line {
+			height: 0.6px;
+			width: 65%;
+			border: 2px solid #aaa;
+		}
+
+		/* 輸入 去除邊框 */
+		.inputNotOutline:focus {
+			outline: 0;
+		}
+
+		/* 熱門文章 */
+		.hot-article-box {
+			height: 450px;
+		}
+
+		.hot-article-imgbox {
+			float: left;
+			height: 150px;
+			padding: 10px;
+		}
+
+		.hot-article-listbox {
+			float: right;
+			height: 150px;
+			padding: 15px;
+		}
+
+		.hot-article-img {
+			border-radius: 5px;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		/* 熱門文章標題 */
+		.hot-articleTitle {
+			font-size: 18px;
+			font-weight: bold;
+			text-align: center;
+		}
+
+		.hot-articleDate {
+			font-size: 16px;
+			color: lightslategray;
+			font-weight: lighter;
+			text-align: center;
+		}
+
+		/* 熱門文章全部 */
+
+		/* 限制 區塊文字 */
+		/* 設定 overflow: hidden 後，因文字內容超出容器的高而被隱藏，
+		並搭配 -webkit-line-clamp 而完成限制行數並顯示省略號的需求。 */
+		.articleCont {
+			width: 750px;
+		}
+
+		.multiline-ellipsis-head {
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 5;
+			overflow: hidden;
+		}
+
+		.multiline-ellipsis {
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 2;
+			overflow: hidden;
+		}
+
+		/* 全部文章 */
+		.all-articleBox {
+			padding: 20px 10px 10px 10px;
+		}
+
+		.all-articleTitle {
+			font-weight: bolder;
+		}
+
+		.all-articleTitle:hover {
+			text-decoration: underline;
+		}
+
+		/* 更多按鈕 */
+		.more {
+			text-align: right;
+		}
+
+		.more:hover {
+			text-decoration: underline;
+		}
+
+		.hitFontSize{
+			font-size: 15px;
+		}
+	</style>
+</head>
+
+<body>
+	<!--navbar-->
+	<%- include Header %>
+
+	<!-- 輪播+文章選單  -->
+	<!--大面積狀態 2空白+5輪播+3文章+2空白=12 -->
+	<section class="row">
+		<div class="col-12 col-md-2"></div>
+		<!-- carousel 占比5等分 -->
+		<div id="slides" class="carousel slide  col-md-5  carousel-vertical " data-ride="carousel" data-interval="3000"
+			style="padding:0px; ">
+			<div class="carousel-inner" style="border-radius: 40px 0px 0px 40px;height:100%;width: 100%;">
+				<!-- 第一張圖 -->
+				<div class="carousel-item active pic" style="height:100%">
+					<img src="/images/upload_images/<%= hotdata[3].ArticleImg %>" class="d-block w-100 h-100  " alt="...">
+					<div class="carousel-caption d-none d-md-block carousel-special-back">
+						<h5 class="text-white">
+							<%= hotdata[3].ArticleTitle %>
+						</h5>
+						<br>
+						<p class="text-white">
+							<%= hotdata[3].ArticleDate.toLocaleDateString() %>
+						</p>
+					</div>
+					<div class=" carousel-special  ">
+						<a href="/KnowConent?id=<%= hotdata[3].ArticleId %>&pageNo=<%= pageNo %>">
+							<h4 class="text-white text-center">
+								<%= hotdata[3].ArticleTitle %>
+							</h4>
+							<br>
+							<p class="text-white text-center multiline-ellipsis-head">
+								<%= hotdata[3].ArticleCont %>
+							</p>
+							<p class="date text-white text-center">
+								<%= hotdata[3].ArticleDate.toLocaleDateString() %>
+							</p>
+						</a>
+					</div>
+				</div>
+
+				<!-- 第二張圖 -->
+				<div class="carousel-item pic " style="height:100%">
+					<img src="/images/upload_images/<%= hotdata[4].ArticleImg %>" class="d-block w-100 h-100" alt="...">
+					<div class="carousel-caption d-none d-md-block carousel-special-back">
+						<h5 class="text-white">
+							<%= hotdata[4].ArticleTitle %>
+						</h5>
+						<!-- 標題字數需要小於20個全形字元 -->
+						<br>
+						<p class="text-white">
+							<%= hotdata[4].ArticleDate.toLocaleDateString() %>
+						</p>
+					</div>
+					<div class="carousel-special">
+						<a href="/KnowConent?id=<%= hotdata[4].ArticleId %>&pageNo=<%= pageNo %>">
+							<h4 class="text-white text-center">
+								<%= hotdata[4].ArticleTitle %>
+							</h4>
+							<br>
+							<p class="text-white text-center multiline-ellipsis-head">
+								<%= hotdata[4].ArticleCont %>
+							</p>
+							<p class="date text-white text-center">
+								<%= hotdata[4].ArticleDate.toLocaleDateString() %>
+							</p>
+						</a>
+					</div>
+				</div>
+				<!-- 第三張圖 -->
+				<div class="carousel-item pic " style="height:100%">
+					<img src="/images/upload_images/<%= hotdata[5].ArticleImg %>" class="d-block w-100 h-100" alt="...">
+					<div class="carousel-caption d-none d-md-block carousel-special-back">
+						<h5 class="text-white">
+							<%= hotdata[5].ArticleTitle %>
+						</h5>
+						<br>
+						<p class="text-white">
+							<%= hotdata[5].ArticleDate.toLocaleDateString() %>
+						</p>
+					</div>
+					<div class="carousel-special">
+						<a href="/KnowConent?id=<%= hotdata[5].ArticleId %>&pageNo=<%= pageNo %>">
+							<h4 class="text-white text-center">
+								<%= hotdata[5].ArticleTitle %>
+							</h4>
+							<br>
+							<p class="text-white text-center multiline-ellipsis-head">
+								<%= hotdata[5].ArticleCont %>
+							</p>
+							<p class="date text-white text-center">
+								<%= hotdata[5].ArticleDate.toLocaleDateString() %>
+							</p>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 熱門文章 占比3等分 -->
+		<div class="col-md-3  "
+			style="background-color: rgba(255, 255, 255, 0.8); height: auto;border-radius: 0px 40px 40px 0px ">
+			<div style=" display: flex; flex-direction: column;align-items: center; padding-top: 20px ;">
+				<p class=" h3 ">熱門文章</p>
+				<!-- 分界線 -->
+				<div class="" style="background-color:var(--BananaYellow); padding:0.15rem ;border-radius: 40px ; width: 65%;"></div>
+			</div>
+			<ul class="col-md-12 hot-article-box">
+				<!-- 熱門文章內容 -->
+				<% for(var i=0; i<3; i++) { %>
+					<li class="row ">
+						<div class="col-md-6 hot-article-imgbox">
+							<a href="/KnowConent?id=<%= hotdata[i].ArticleId %>&pageNo=<%= pageNo %>">
+								<img class="hot-article-img" src="/images/upload_images/<%= hotdata[i].ArticleImg %>" alt="" />
+							</a>
+						</div>
+						<div class="col-md-6 hot-article-listbox">
+							<a href="/KnowConent?id=<%= hotdata[i].ArticleId %>&pageNo=<%= pageNo %>">
+								<p class="hot-articleTitle">
+									<%= hotdata[i].ArticleTitle %>
+								</p>
+								<p class="hot-articleDate">
+									<%= hotdata[i].ArticleDate.toLocaleDateString() %>
+								</p>
+							</a>
+						</div>
+					</li>
+					<% } %>
+			</ul>
+		</div>
+		<div class="col-md-2"></div>
+	</section>
+	<!-- 搜尋欄 -->
+	<section class="row" style="margin-top: 80px;">
+		<div class="col-md-2"></div>
+		<div class="col-md-8 row ">
+			<h4 class="ml-0">全部文章</h4>
+			<form class="form-inline my-2 my-lg-0 ml-auto " action="/KnowList"  novalidate method="POST">
+				<input class="inputNotOutline" type="search" placeholder="  輸入關鍵字..." name="search"
+					aria-label="Search through site content" size="10"
+					style="border: 1px solid black;border-radius: 40px;">
+				<button class="btn  my-2 my-sm-0 b" type="submit"><img src="../img/icon/magnifying-glass.png" alt="" style="width: 25px;"></button>
+			</form>
+		</div>
+		<div class="col-md-2"></div>
+
+	</section>
+	<!-- 分界線 -->
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="mb-3 line"></div>
+		<div class="col-md-2"></div>
+	</div>
+	<!-- （圖片用圓角） -->
+	<section class="row" style="margin-top: 80px;">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<ul class="flex-column ">
+				<!-- 全部文章 -->
+				<% for(var i=0; i<data.length; i++) { %>
+					<li class="row d-inline-flex mb-4">
+						<div class="col-md-4 col-sm-4">
+							<img class="img-fluid rounded" src="/images/upload_images/<%= data[i].ArticleImg %>" alt="" />
+						</div>
+						<div class="col-md-8 col-sm-8 all-articleBox">
+							<a href="/KnowConent?id=<%= data[i].ArticleId %>&pageNo=<%= pageNo %>">
+								<h5 class="all-articleTitle">
+									<%= data[i].ArticleTitle %>
+								</h5>
+							</a>
+							<p class="multiline-ellipsis col-md-12">
+								<%= data[i].ArticleCont %>
+							</p>
+							<p class="figure-caption">
+								<%= data[i].ArticleDate.toLocaleDateString() %>
+							</p>
+							<p style="text-align: right;" class="figure-caption hitFontSize">點閱次數：<%= data[i].ArticleHits %></p>
+							<a href="/KnowConent?id=<%= data[i].ArticleId %>&pageNo=<%= pageNo %>">
+								<p class="more">Read More</p>
+							</a>
+						</div>
+					</li>
+					<% } %>
+			</ul>
+		</div>
+		<div class="col-md-2"></div>
+	</section>
+	<!-- 分頁 -->
+	<nav aria-label="Page navigation example ">
+		<ul class="pagination justify-content-center">
+			<li class="page-item">
+				<a class="page-link" href="#" aria-label="Previous">
+					<span aria-hidden="true">&laquo;</span>
+				</a>
+			</li>
+			<% for(var i=1; i <=totalPage; i++) { %>
+				<li class="page-item"><a class="page-link" href="/KnowList?pageNo=<%= i %>">
+						<%= i%>
+					</a></li>
+				<% } %>
+
+					<li class="page-item">
+						<a class="page-link" href="#" aria-label="Next">
+							<span aria-hidden="true">&raquo;</span>
+						</a>
+					</li>
+		</ul>
+	</nav>
+	<!-- footer -->
+	<%- include footer%>
+</body>
+
+<script>
+	// 漢堡選單
+	$(document).ready(function () {
+		$('.burgar-menu').on('click', function (e) {
+			$('body').toggleClass('burgar-menu-show');
+		});
+	});
+
+
+</script>
+
+</html>

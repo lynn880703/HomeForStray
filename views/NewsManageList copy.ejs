@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>浪浪有窩後臺管理系統</title>
+  <!-- 頁籤icon -->
+  <link href="#" rel="icon" />
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/461a428763.js" crossorigin="anonymous"></script>
+
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
+
+  <!--JQ-->
+  <link rel="stylesheet" href="/dist/css/jquery-ui.css">
+  <link rel="stylesheet" href="/dist/css/skins/skin-blue.css">
+  <link rel="stylesheet" href="/dist/css/gl-style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/dist/css/vnstyle.css">
+  <link rel="stylesheet" href="/stylesheets/annistyle.css">
+
+</head>
+
+<body class="hold-transition sidebar-mini ">
+  <div class="wrapper">
+    <!-- 左上角Logo -->
+    <header class="main-header">
+      <a href="#" class="logo">
+        <span class="logo-mini"><b>E</b>VE</span>
+        <span class="logo-lg">
+          <!-- <img style="height: 30px; width: 80px;" src="/img/Logo/字.png" alt=""> -->
+        </span>
+      </a>
+
+      <!-- 上方標題 -->
+      <nav class="navbar navbar-static-top align-items-center" role="navigation" style="line-height: 50px;">
+        <!-- <a href="#" class="sidebar-toggle  visible-xs" data-toggle="offcanvas" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a> -->
+        <!-- <h3 style=" text-align: left">後臺管理系統</h3> -->
+        <div class="text-right align-items-center blueheader">
+          <a href="/member/logout">
+            <a href="/member/logout">
+              <button type=" button" class="btn btn-info logout">登出</button>
+            </a> </a>
+        </div>
+      </nav>
+
+
+    </header>
+
+    <!-- 左側選單 -->
+
+    <aside class="main-sidebar" id="main-sidebar">
+      <section class=" sidebar">
+        <!-- Logo -->
+        <img class="menu-logo" src="/img/Logo/logomix.png" style="width: 250px;" alt="">
+        <ul class="sidebar-menu">
+          <li class="treeview"><a href="/BackUserManage/UserManageList"><span>會員資料管理</span><i
+                class="fa fas fa-paw"></i></a></li>
+          <li class="treeview"><a href="/FosterManageList"><span>刊登送養審核</span><i class="fa fas fa-paw"></i></a></li>
+          <li class="treeview"><a class="menu-active" href="/BackNewsManage/NewsManageList"><span>最新消息管理</span><i
+                class="fa fas fa-paw"></i></a></li>
+          <li class="treeview"><a href="KnowManageList"><span>毛孩知識文章管理</span><i class="fa fas fa-paw"></i></a></li>
+        </ul>
+
+      </section>
+    </aside>
+
+    <!-- 內頁 -->
+    <div class="content-wrapper">
+      <section class="content">
+        <h3 class="title">最新消息管理</h3>
+        <div class="row">
+
+          <!-- 查詢條件 -->
+          <div class="col-xs-12">
+            <div class="search">
+              <!-- 標題 -->
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="form-group">
+                  <label>標題：</label>
+                  <input type="text" name="NewsTitle" class="form-control" id="">
+                </div>
+              </div>
+
+              <!-- 換行 -->
+              <div class="clearfix"></div>
+
+              <!-- 發佈日期 -->
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <label>發佈日期：</label>
+              </div>
+              <div class="clearfix"></div>
+              <!-- 發佈日期Str -->
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="form-group">
+                  <input name="ShowStartDate" type="date" class="form-control inputNotOutline" name="ShowEndDate">
+                </div>
+              </div>
+              <!-- 發佈日期~ -->
+              <label class="s-Elab">～</label>
+              <!-- 發佈日期End -->
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="form-group">
+                  <input name="ShowEndDate" type="date" class="form-control inputNotOutline" name="ShowEndDate">
+                </div>
+              </div>
+
+              <!-- 換行 -->
+              <div class="clearfix"></div>
+
+              <!-- 狀態： -->
+              <!-- <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="form-group">
+                  <label>狀態：</label>
+                  <div class="clearfix"></div>
+                  <input type="radio" name="NewsState" id="NewsState_1">
+                  <label for="NewsState_1" class="MyListLabel ">顯示</label>
+                  <input type="radio" name="NewsState" id="NewsState_0">
+                  <label for="NewsState_0" class="MyListLabel">隱藏</label>
+                </div>
+              </div> -->
+
+
+              <!-- 查詢/清除 -->
+              <div class="col-xs-12 text-right">
+                <button type="button" class="btn btn-primary">查詢</button>
+                <button type="button" class="btn btn-primary">清除</button>
+              </div>
+              <div class="clearfix"></div>
+
+            </div>
+          </div>
+
+          <!-- 新增 -->
+          <div class="col-xs-12 addBtn">
+            <a href="/BackNewsManage/NewsManageAdd?pageNo=<%= pageNo %>" title="新增">
+              <input type="button" class="btn btn-success" value="新增">
+            </a>
+          </div>
+
+          <div class="clearfix"></div>
+          <!-- 查詢結果 -->
+          <div class="col-xs-12">
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr class="serchlist">
+                    <th width="10%">編號</th>
+                    <th width="20%">標題</th>
+                    <th width="10%">發佈日期</th>
+                    <th width="10%">修改日期</th>
+                    <th width="10%">管理</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%var sn=1; //宣告sn=編號 %>
+                    <% for(var i=0; i<data.length; i++) { %>
+                      <tr>
+                        <!-- 編號 -->
+                        <td scope="row">
+                          <%=sn %>
+                        </td>
+                        <!-- 標題 -->
+                        <td>
+                          <%= data[i].NewsTitle %>
+                            </a>
+                        </td>
+                        <!-- 發佈日期 -->
+                        <td>
+                          <%= (data[i].ShowStartDate).toLocaleDateString() %>
+                            ~
+
+                            <%= (data[i].ShowEndDate).toLocaleDateString() %>
+                        </td>
+                        <!-- 修改日期 -->
+                        <td>
+                          <%= (data[i].ModifyDate).toLocaleDateString() %>
+                        </td>
+                        <!-- 狀態 -->
+                        <!-- <td style="width: 10%;">
+                          <% var statusStr='' ; %>
+                            <% var status=data[i].NewsState; //宣告status=1或0 %>
+                              <% (status==1) ? statusStr='顯示' : statusStr='隱藏' ; //判斷status=1，則statusStr為顯示，反之為隱藏 ; %>
+                                <%= statusStr %>
+                        </td> -->
+                        <!-- 功能 -->
+                        <td>
+                          <a href="/BackNewsManage/NewsManageEdit?id=<%= data[i].NewsId %>&pageNo=<%= pageNo %>">
+                            <input type="button" class="btn btn-primary" value="編輯">
+                          </a>
+                          <a href="/BackNewsManage/NewsManageDel?id=<%= data[i].NewsId %>&pageNo=<%= pageNo %>"
+                            title="刪除">
+                            <input type="button" class="btn btn-danger" value="刪除">
+                          </a>
+                      </tr>
+
+                      <% sn++; %>
+                        <% } %>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- 頁碼 -->
+            <nav aria-label="Page navigation" class="text-right">
+              <ul class="pagination">
+
+                <!-- 上一頁 -->
+                <li class="">
+                  <a class="" href="/BackNewsManage/NewsManageList?pageNo=<%= (pageNo-1) %>" title="上一頁"" aria-label="
+                    Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+
+                <!-- 頁碼 -->
+                <% for(var i=1; i <=totalPage; i++) { %>
+                  <li class="page-item"><a class="page-link" href="/BackNewsManage/NewsManageList?pageNo=<%= i%>">
+                      <%= i%>
+                    </a>
+                  </li>
+                  <% } %>
+
+                    <!-- 下一頁 -->
+                    <li class="">
+                      <a class="" href="/BackNewsManage/NewsManageList?pageNo=<%= (pageNo+1) %>" title="下一頁"
+                        aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
+              </ul>
+            </nav>
+
+
+
+          </div>
+
+        </div>
+      </section>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- JS SCRIPTS -->
+
+  <!-- jQuery 2.2.3 -->
+  <script src="plugins/jQuery/jquery.js"></script>
+  <script src="plugins/jQuery/jquery-ui.js"></script>
+  <!-- Bootstrap 3.3.6 -->
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="dist/js/app.min.js"></script>
+  <script src="dist/js/jquery.tablesorter.min.js"></script>
+  <script src="dist/js/jquery.tablesorter.widgets.min.js"></script>
+
+  <script>
+    function Clone1() {
+      var CloneModel = $("#cloneModel1").clone().html();
+      $("#cloneModel1").parent().append(CloneModel);
+    }
+
+    $(function () {
+      $("#datepicker").datepicker();
+    });
+    $(function () {
+      $("#datepicker02").datepicker();
+    });
+    $(function () {
+      $("#datepicker03").datepicker();
+    });
+
+  </script>
+
+</body>
+
+</html>

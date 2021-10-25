@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>浪浪有窩</title>
+
+	<!-- bootstrap -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+		integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+		crossorigin="anonymous"></script>
+	<!-- 引用sweetalert2-->
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+	<!-- 引用style.css -->
+	<link rel="stylesheet" href="/stylesheets/style.css" />
+	<link rel="stylesheet" href="/stylesheets/annistyle.css" />
+
+</head>
+
+<body>
+	<!-- 引入header -->
+	<%- include Header %>
+
+		<div class="container form-block mx-auto">
+			<h2>加入會員</h2>
+			<form class="Register-block" method="POST" action="/member/register" id="form">
+				<div class="form-group row">
+					<label for="staticEmail" class="col-sm-2 col-form-label">帳號</label>
+					<div class="col-9">
+						<input type="email" class="form-control" id="email" name="Email" placeholder="請輸入email"
+							required value="<%= EmailVal %>"/>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="inputPassword" class="col-sm-2 col-form-label">密碼</label>
+					<div class="col-9">
+						<input type="password" class="form-control" id="password" name="Password" required value="<%= PasswordVal %>"/>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="inputPassword" class="col-sm-2 col-form-label">密碼確認</label>
+					<div class="col-9">
+						<input type="password" class="form-control" id="passwordConfirm" name="PasswordConfirm"
+							required value="<%= PasswordConfirmVal %>"/>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="inputPhone" class="col-sm-2 col-form-label">姓名</label>
+					<div class="col-9">
+						<input type="text" class="form-control" id="memberName" name="MemberName" required value="<%= MemberNameVal %>"/>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="inputPassword" class="col-sm-2 col-form-label">手機</label>
+					<div class="col-9">
+						<input type="tel" class="form-control" id="CellPhone" name="CellPhone" placeholder="0912333444"
+							required value="<%= CellPhoneVal %>"/>
+					</div>
+					<!-- <div class="col-1"><button class="check check-btn">驗證</button></div> -->
+				</div>
+				<div class="form-group form-check">
+					<input type="checkbox" class="form-check-input" id="exampleCheck1" required />
+					<label class="form-check-label" for="exampleCheck1">我已經閱讀 <a href="#"
+							style="color: blue; text-decoration: underline">服務條款</a> 並同意註冊為會員</label>
+				</div>
+				<input type="submit" class="btnMd btn-green" value="註冊" id="submit" />
+			</form>
+		</div>
+		<!-- 註冊成功訊息框 -->
+		<% if (isLogin) { %>
+			<script>
+				Swal.fire(
+					'註冊成功!',
+					'歡迎加入「浪浪有窩」',
+					'success'
+				).then(function () {
+					window.location.href = "/member/login"
+				})
+			</script>
+			<% } %>
+
+				<!-- 註冊失敗訊息框 -->
+				<% if ( notRegister ) { %>
+					<script>
+						Swal.fire({
+							title: '註冊失敗!',
+							text: "<%= err.err %>",
+							icon: 'error',
+						})
+					</script>
+					<% } %>
+
+						<!-- footer -->
+						<% include footer%>
+
+							<script>
+								$(document).ready(function () {
+									// 漢堡選單
+									$(".burgar-menu").on("click", function (e) {
+										$("body").toggleClass("burgar-menu-show");
+									});
+								});
+
+									//表單驗證
+									// $(document).ready(function () {
+									// $("#submit").click(function () {
+									// 	if ($("#email").val() == "") {
+									// 		Swal.fire({
+									// 			icon: "error",
+									// 			title: "請輸入電子信箱",
+									// 		});
+									// 		eval("document.form['email'].focus()");
+									// 		return false;
+									// 	}  else if ($("#paswword").val() == "") {
+									// 		Swal.fire({
+									// 			icon: "error",
+									// 			title: "尚未填寫密碼",
+									// 		});
+									// 		eval("document.form['paswword'].focus()");
+									// 		return false;
+									// 	} else if ($("#paswword").length <= 6 || $("#paswword").length >= 12) {
+									// 		Swal.fire({
+									// 			icon: "error",
+									// 			title: "密碼6~12個字元",
+									// 		});
+									// 		eval("document.form['paswword'].focus()");
+									// 		return false;
+									// 	} else if ($("#paswword").val() !== $("#passwordConfirm").val()) {
+									// 		Swal.fire({
+									// 			icon: "error",
+									// 			title: "密碼填寫不一致",
+									// 		});
+									// 		eval("document.form['passwordConfirm'].focus()");
+									// 		return false;
+									// 	} else if ($("#memberName").val() !== "") {
+									// 		Swal.fire({
+									// 			icon: "error",
+									// 			title: "尚未填寫姓名",
+									// 		});
+									// 		eval("document.form['memberName'].focus()");
+									// 		return false;
+									// 	}else if ($("#CellPhone").val() !== "") {
+									// 		Swal.fire({
+									// 			icon: "error",
+									// 			title: "尚未填寫手機",
+									// 		});
+									// 		eval("document.form['CellPhone'].focus()");
+									// 		return false;
+									// 	} else if ($("#CellPhone").val() <= 10) {
+									// 		Swal.fire({
+									// 			icon: "error",
+									// 			title: "請輸入正確手機格式",
+									// 		});
+									// 		eval("document.form['CellPhone'].focus()");
+									// 		return false;
+									// 	}else {
+									// 		document.form.submit();
+									// 	}
+									// })
+								// });
+
+				// $(function () {
+				// 	$('#form').validate({
+				// 		/* 常用檢測屬性
+				// 	   required:必填
+				// 	   noSpace:空白
+				// 	   minlength:最小長度
+				// 	   maxlength:最大長度
+				// 	   email:信箱格式
+				// 	   number:數字格式
+				// 	   url:網址格式https://www.minwt.com
+				// 	   */
+				// 		onkeyup: function (element, event) {
+				// 			//去除左側空白
+				// 			var value = this.elementValue(element).replace(/^\s+/g, "");
+				// 			$(element).val(value);
+				// 		},
+				// 		rules: {
+				// 			Email: {
+				// 				required: true,
+				// 				email: true
+				// 			},
+				// 			Password: {
+				// 				required: true,
+				// 				minlength: 6,
+				// 				maxlength: 12,
+				// 			},
+				// 			PasswordConfirm: {
+				// 				required: true,
+				// 				minlength: 6,
+				// 				maxlength: 12,
+				// 				equalTo: "#password"
+				// 			},
+				// 			MemberName: {
+				// 				required: true,
+				// 			},
+				// 			CellPhone: {
+				// 				required: true,
+				// 				maxlength: 10,
+				// 				number: true,
+				// 			}
+				// 		},
+				// 		messages: {
+				// 			Email: {
+				// 				required: '必填',
+				// 				email:'Email格式不正確'
+				// 			},
+				// 			Password: {
+				// 				required: '必填',
+				// 				minlength: '請輸入6~12位字元',
+				// 				maxlength: '請輸入6~12位字元',
+				// 			},
+				// 			PasswordConfirm: {
+				// 				required: '必填',
+				// 				minlength: '請輸入6~12位字元',
+				// 				maxlength: '請輸入6~12位字元',
+				// 				equalTo: '密碼填寫不一致'
+				// 			},
+				// 			MemberName: {
+				// 				required: '必填',
+				// 			},
+				// 			CellPhone: {
+				// 				required: '必填',
+				// 				maxlength: '不得少於10位',
+				// 				number: '需為數字',
+				// 			}
+				// 		},
+				// 		submitHandler: function (form) {
+				// 			form.submit();
+				// 		}
+				// 	});
+				// });
+							</script>
+</body>
+
+</html>

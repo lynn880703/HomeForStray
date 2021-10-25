@@ -1,0 +1,36 @@
+  <!-- JS SCRIPTS -->
+
+  <!-- jQuery 2.2.3 -->
+  <script src="plugins/jQuery/jquery.js"></script>
+  <script src="plugins/jQuery/jquery-ui.js"></script>
+  <!-- Bootstrap 3.3.6 -->
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="dist/js/app.min.js"></script>
+  <script src="dist/js/jquery.tablesorter.min.js"></script>
+  <script src="dist/js/jquery.tablesorter.widgets.min.js"></script>
+
+  <script>
+    function Clone1() {
+      var CloneModel = $("#cloneModel1").clone().html();
+      $("#cloneModel1").parent().append(CloneModel);
+    }
+
+    $(function () {
+      $("#datepicker").datepicker();
+    });
+    $(function () {
+      $("#datepicker02").datepicker();
+    });
+    $(function () {
+      $("#datepicker03").datepicker();
+    });
+    function ResetBtn() {
+    document.getElementById("searchForm").reset();
+    }
+
+  </script>
+
+</body>
+
+</html>

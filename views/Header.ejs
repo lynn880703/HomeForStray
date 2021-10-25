@@ -1,0 +1,81 @@
+<!--navbar-->
+<div class="container-fluid header">
+  <a href="#" class="logoImg navbar-brand">
+    <img src="../img/Logo/改I2 2.png" alt="" class="logo">
+    <img src="../img/Logo/字.png" alt="" class="logo-text">
+  </a>
+  <div class="nav">
+    <ul class="menu burgar-menu">
+      <li><a href="/">首頁</a></li>
+      <li><a href="/AdoptList">毛孩領養</a></li>
+      <!-- 判斷不是會員，連結跳轉到登入頁面 -->
+      <% if ( memberData=="" ){ %>
+        <li><a href="javascript:link()">刊登送養</a></li>
+        <% }else{ %>
+          <li><a href="/Foster">刊登送養</a></li>
+          <% } %>
+            <li><a href="/KnowList">毛孩知識</a></li>
+            <!-- 判斷不是會員，顯示登入註冊按鈕 -->
+            <% if ( memberData=="" ){ %>
+              <li><a href="/member/login">登入</a></li>
+              <li><a href="/member/register">註冊</a></li>
+    </ul>
+    <a href="#" class="hamBar burgar-menu">
+      <i>
+        <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
+      </i>
+    </a>
+    <% }else if( memberData.MemberName=="管理者" ){ %>
+      <!-- navbar-user -->
+      <div class="btn-group">
+        <button class="btn  btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          <img src="../img/icon/user.png" alt="" class="user-icon">
+        </button>
+        <div class="dropdown-menu  user-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+          <ul>
+            <!-- 名稱 -->
+            <li><a href="">
+                <%= memberData.MemberName %>
+              </a></li>
+            <!-- 名稱end -->
+            <li><a href="/UserEdit">管理者資訊</a></li>
+            <li><a href="/UserFoster">我的送養文</a></li>
+            <li><a href="/UserFollow">追蹤的毛孩</a></li>
+            <li><a href="/UserMsg">通知</a></li>
+            <li><a href="/Back">後臺管理</a></li>
+            <li><a href="/member/logout">登出</a></li>
+          </ul>
+        </div>
+      </div>
+      <% }else{ %>
+        </ul>
+        <a href="#" class="hamBar burgar-menu">
+          <i>
+            <img src="../img/icon/square.png" class="ham hamBar-icon"></img>
+          </i>
+        </a>
+        <!-- navbar-user -->
+        <div class="btn-group">
+          <button class="btn  btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <img src="../img/icon/user.png" alt="" class="user-icon">
+          </button>
+          <div class="dropdown-menu  user-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+            <ul>
+              <!-- 名稱 -->
+              <li><a href="">
+                  <%= memberData.MemberName %>
+                </a></li>
+              <!-- 名稱end -->
+              <li><a href="/UserEdit">會員資訊</a></li>
+              <li><a href="/UserFoster">我的送養文</a></li>
+              <li><a href="/UserFollow">追蹤的毛孩</a></li>
+              <li><a href="/UserMsg">通知</a></li>
+              <li><a href="/member/logout">登出</a></li>
+            </ul>
+          </div>
+        </div>
+        <% } %>
+  </div>
+</div>
